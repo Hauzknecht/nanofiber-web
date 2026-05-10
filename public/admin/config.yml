@@ -6,7 +6,6 @@ backend:
   repo: Hauzknecht/nanofiber-web
   branch: master
   auth_type: implicit
-  base_url: https://nanofiber-web.pages.dev
 
 # ─── Media ──────────────────────────────────────────────────
 # Images uploaded in the CMS are stored here
