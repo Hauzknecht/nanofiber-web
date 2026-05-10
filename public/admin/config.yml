@@ -5,12 +5,15 @@ backend:
   name: github
   repo: Hauzknecht/nanofiber-web
   branch: master
+  # Remove any Netlify-specific settings
+  site_domain: your-cloudflare-pages-domain.pages.dev
 
 publish_mode: editorial_workflow
-# ─── Media ──────────────────────────────────────────────────
-# Images uploaded in the CMS are stored here
-media_folder: "public/images/blog"
-public_folder: "/images/blog"
+media_folder: "public/images/uploads"
+public_folder: "/images/uploads"
+
+# Add this to ensure proper OAuth redirect
+local_backend: false
 
 # ─── Site URL (used for preview links) ──────────────────────
 site_url: https://nanofiber-web.pages.dev          # ← change this
