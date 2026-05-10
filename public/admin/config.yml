@@ -3,7 +3,7 @@
 # She logs in with GitHub OAuth — Cloudflare handles the auth flow.
 backend:
   name: github
-  repo: YHauzknecht/nanofiber-web
+  repo: Hauzknecht/nanofiber-web
   branch: master
 
 # ─── Media ──────────────────────────────────────────────────
