@@ -6,8 +6,6 @@ backend:
   repo: Hauzknecht/nanofiber-web
   branch: master
 
-auth_endpoint: https://github.com/login/oauth/authorize
-
 # ─── Media ──────────────────────────────────────────────────
 # Images uploaded in the CMS are stored here
 media_folder: "public/images/blog"
