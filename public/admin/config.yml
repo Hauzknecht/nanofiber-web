@@ -1,0 +1,78 @@
+# ─── Backend ────────────────────────────────────────────────
+# Decap CMS talks directly to GitHub on your girlfriend's behalf.
+# She logs in with GitHub OAuth — Cloudflare handles the auth flow.
+backend:
+  name: github
+  repo: YHauzknecht/nanofiber-web
+  branch: master
+
+# ─── Media ──────────────────────────────────────────────────
+# Images uploaded in the CMS are stored here
+media_folder: "public/images/blog"
+public_folder: "/images/blog"
+
+# ─── Site URL (used for preview links) ──────────────────────
+site_url: https://nanofiber-web.pages.dev          # ← change this
+
+# ─── Collections ────────────────────────────────────────────
+collections:
+  - name: "blog"
+    label: "Blog Posts"
+    label_singular: "Blog Post"
+    folder: "src/content/blog"
+    create: true
+    slug: "{{slug}}"              # filename = url-friendly title
+    extension: "md"
+    format: "frontmatter"
+
+    # What your girlfriend sees in the editor
+    fields:
+      - label: "Title"
+        name: "title"
+        widget: "string"
+        hint: "The headline of your article"
+
+      - label: "Publish Date"
+        name: "date"
+        widget: "datetime"
+        format: "YYYY-MM-DD"
+        date_format: "DD.MM.YYYY"   # shown in the UI
+        time_format: false
+        hint: "When this article was written"
+
+      - label: "Short Summary"
+        name: "excerpt"
+        widget: "string"
+        hint: "One or two sentences shown on the blog list page"
+
+      - label: "Category"
+        name: "tag"
+        widget: "select"
+        options:
+          - { label: "Research",  value: "Research" }
+          - { label: "Technical", value: "Technical" }
+          - { label: "Industry",  value: "Industry" }
+          - { label: "News",      value: "News" }
+        hint: "Pick the closest category"
+
+      - label: "Author"
+        name: "author"
+        widget: "string"
+        default: "Jana Nováková"
+
+      - label: "Cover Image"
+        name: "coverImage"
+        widget: "image"
+        required: false
+        hint: "Optional — shown at the top of the article"
+
+      - label: "Save as Draft (hide from site)"
+        name: "draft"
+        widget: "boolean"
+        default: false
+        hint: "Turn on to save without publishing"
+
+      - label: "Article Body"
+        name: "body"
+        widget: "markdown"
+        hint: "Write your article here. Use the toolbar to add headings, bold, links, etc."

@@ -32,42 +32,18 @@ const aboutData = {
   institution: "Your University",
   location:    "Czech Republic",
   field:       "Nanotechnology · Cosmetics",
-  // photoSrc: "/images/portrait.jpg",  ← uncomment and add your photo
+  // photoSrc: "/images/portrait.jpg",  ← uncomment and add your photo to public/images/
 };
-
-const blogPosts = [
-  {
-    slug:    "nanofibers-vs-sheet-masks",
-    title:   "Why nanofibers could replace conventional face masks",
-    date:    "March 2025",
-    excerpt: "Sheet masks are a $1.5B market. But their delivery efficiency is surprisingly limited. Here's what nanofibers change.",
-    tag:     "Industry",
-  },
-  {
-    slug:    "electrospinning-parameters",
-    title:   "Electrospinning parameters for cosmetic-grade fibers",
-    date:    "January 2025",
-    excerpt: "A practical guide to voltage, flow rate, and collector distance when working with skin-compatible polymers.",
-    tag:     "Technical",
-  },
-  {
-    slug:    "retinol-encapsulation",
-    title:   "Retinol encapsulation: the nanofiber approach",
-    date:    "November 2024",
-    excerpt: "Retinol is notoriously unstable. This is how nanofiber matrices offer a novel stabilisation strategy.",
-    tag:     "Research",
-  },
-];
 ---
 
 <BaseLayout
-  title="Martina Říhová - Nanofiber Research"
+  title="Jana Nováková — Nanofiber Research"
   description="PhD researcher specialising in electrospun nanofibers for cosmetic applications."
 >
   <Hero {...heroData} />
   <ExpertiseStrip />
   <About {...aboutData} />
-  <BlogPreview posts={blogPosts} />
+  <BlogPreview />
   <LocationSection
     lat={49.1951}
     lng={16.6068}
