@@ -8,7 +8,7 @@ const blog = defineCollection({
     date:        z.date(),
     excerpt:     z.string(),
     tag:         z.string(),
-    author:      z.string().default('Jana Nováková'),
+    author:      z.string().default('Martina Říhová'),
     draft:       z.boolean().default(false),
     coverImage:  z.string().optional(),
   }),
