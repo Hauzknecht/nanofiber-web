@@ -6,6 +6,7 @@ backend:
   repo: Hauzknecht/nanofiber-web
   branch: master
 
+publish_mode: editorial_workflow
 # ─── Media ──────────────────────────────────────────────────
 # Images uploaded in the CMS are stored here
 media_folder: "public/images/blog"
