@@ -1,0 +1,163 @@
+---
+interface Props {
+  lat?: number;
+  lng?: number;
+  cityName?: string;
+  country?: string;
+  blurb?: string;
+}
+
+const {
+  lat      = 49.8175,
+  lng      = 15.4730,
+  cityName = "Brno",
+  country  = "Czech Republic",
+  blurb    = "Open to remote consulting, international conference invitations, and collaboration with research groups worldwide.",
+} = Astro.props;
+---
+
+<section class="location-section">
+  <div class="location-info">
+    <p class="section-label">Location</p>
+    <h2 class="location-headline">
+      Based in<br /><em>{cityName}, {country}.</em><br />Collaborating globally.
+    </h2>
+    <p class="location-blurb">{blurb}</p>
+    <a class="btn-primary" href="/contact">Send a collaboration request</a>
+  </div>
+
+  <!-- Leaflet map — no API key required -->
+  <div class="map-wrap" id="map" aria-label={`Map showing ${cityName}`}></div>
+</section>
+
+<!-- Leaflet CSS + JS from CDN -->
+<link
+  rel="stylesheet"
+  href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+  integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+  crossorigin=""
+/>
+
+<script
+  src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+  integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV/XN/WPcw="
+  crossorigin=""
+  is:inline
+></script>
+
+<script define:vars={{ lat, lng, cityName }}>
+  // Wait for Leaflet to load
+  document.addEventListener('DOMContentLoaded', () => {
+    const mapEl = document.getElementById('map');
+    if (!mapEl || typeof L === 'undefined') return;
+
+    const map = L.map('map', {
+      center: [lat, lng],
+      zoom: 7,
+      scrollWheelZoom: false,
+      zoomControl: true,
+    });
+
+    // Stamen Toner Light tiles — clean monochrome, no key needed
+    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+      maxZoom: 18,
+    }).addTo(map);
+
+    // Custom minimal marker
+    const icon = L.divIcon({
+      className: '',
+      html: `<div style="
+        width:14px;height:14px;
+        background:#3B4A3E;
+        border:2px solid #F7F4EE;
+        border-radius:50%;
+        box-shadow:0 0 0 1px #3B4A3E;
+      "></div>`,
+      iconSize: [14, 14],
+      iconAnchor: [7, 7],
+    });
+
+    L.marker([lat, lng], { icon })
+      .addTo(map)
+      .bindPopup(`<strong style="font-family:Georgia,serif">${cityName}</strong>`, {
+        closeButton: false,
+        className: 'map-popup',
+      })
+      .openPopup();
+  });
+</script>
+
+<style>
+  .location-section {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 300px;
+    border-bottom: var(--border);
+  }
+
+  @media (min-width: 768px) {
+    .location-section {
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: unset;
+      min-height: 360px;
+    }
+  }
+
+  .location-info {
+    padding: var(--sp-8) var(--section-px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: var(--sp-4);
+    border-bottom: var(--border);
+  }
+
+  @media (min-width: 768px) {
+    .location-info {
+      border-bottom: none;
+      border-right: var(--border);
+    }
+  }
+
+  .location-headline {
+    font-family: var(--serif);
+    font-size: clamp(1.6rem, 3vw, 2.1rem);
+    font-weight: 300;
+    line-height: 1.18;
+    color: var(--ink);
+  }
+  .location-headline em {
+    font-style: italic;
+    color: var(--accent);
+  }
+
+  .location-blurb {
+    font-size: 14px;
+    color: var(--ink-muted);
+    line-height: 1.75;
+    max-width: 360px;
+    font-weight: 300;
+  }
+
+  .map-wrap {
+    width: 100%;
+    height: 100%;
+    min-height: 300px;
+    background: #e8e6df;
+    /* override Leaflet's default z-index stacking under sticky nav */
+    z-index: 1;
+  }
+
+  /* Soften Leaflet popup */
+  :global(.map-popup .leaflet-popup-content-wrapper) {
+    border-radius: 3px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+    font-family: var(--sans);
+    font-size: 13px;
+    padding: 6px 12px;
+  }
+  :global(.map-popup .leaflet-popup-tip) {
+    background: white;
+  }
+</style>

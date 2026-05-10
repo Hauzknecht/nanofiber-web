@@ -1,0 +1,74 @@
+---
+const links = [
+  { label: "LinkedIn",       href: "https://linkedin.com" },
+  { label: "ResearchGate",   href: "https://researchgate.net" },
+  { label: "Google Scholar", href: "https://scholar.google.com" },
+  { label: "ORCID",          href: "https://orcid.org" },
+];
+
+const year = new Date().getFullYear();
+---
+
+<footer class="footer">
+  <div class="footer-name">Martina Říhová — Nanofiber Research</div>
+
+  <ul class="footer-links">
+    {links.map(link => (
+      <li>
+        <a href={link.href} target="_blank" rel="noopener noreferrer">
+          {link.label}
+        </a>
+      </li>
+    ))}
+  </ul>
+
+  <div class="footer-copy">© {year}</div>
+</footer>
+
+<style>
+  .footer {
+    padding: 2rem var(--section-px);
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    border-top: var(--border);
+  }
+
+  @media (min-width: 768px) {
+    .footer {
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0;
+    }
+  }
+
+  .footer-name {
+    font-family: var(--serif);
+    font-size: 1rem;
+    color: var(--ink);
+    font-weight: 400;
+  }
+
+  .footer-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem 1.5rem;
+    list-style: none;
+  }
+
+  .footer-links a {
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    color: var(--ink-muted);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .footer-links a:hover { color: var(--ink); }
+
+  .footer-copy {
+    font-size: 12px;
+    color: var(--ink-muted);
+    letter-spacing: 0.06em;
+  }
+</style>

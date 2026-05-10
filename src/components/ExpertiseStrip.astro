@@ -1,0 +1,100 @@
+---
+interface ExpertiseItem {
+  num: string;
+  title: string;
+  description: string;
+}
+
+interface Props {
+  items?: ExpertiseItem[];
+}
+
+const { items = [
+  {
+    num: "01",
+    title: "Electrospinning",
+    description: "Nanofiber fabrication for cosmetic and pharmaceutical delivery applications.",
+  },
+  {
+    num: "02",
+    title: "Active Delivery",
+    description: "Encapsulation and controlled release of skincare actives at the cellular level.",
+  },
+  {
+    num: "03",
+    title: "Biomaterial Design",
+    description: "Biocompatible polymer systems for skin-contact applications.",
+  },
+  {
+    num: "04",
+    title: "Industry Consulting",
+    description: "R&D advisory for cosmetic companies exploring nanotechnology.",
+  },
+]} = Astro.props;
+---
+
+<div class="expertise-strip">
+  {items.map((item, i) => (
+    <div class="expertise-item">
+      <span class="expertise-num">{item.num}</span>
+      <div class="expertise-title">{item.title}</div>
+      <div class="expertise-desc">{item.description}</div>
+    </div>
+  ))}
+</div>
+
+<style>
+  .expertise-strip {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border-bottom: var(--border);
+  }
+
+  @media (min-width: 900px) {
+    .expertise-strip {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+
+  .expertise-item {
+    padding: 2rem var(--section-px);
+    border-right: var(--border);
+    border-bottom: var(--border);
+  }
+
+  /* Remove right border on last in each row */
+  .expertise-item:nth-child(2n) {
+    border-right: none;
+  }
+
+  @media (min-width: 900px) {
+    .expertise-item { border-bottom: none; }
+    .expertise-item:nth-child(2n)   { border-right: var(--border); }
+    .expertise-item:nth-child(4n)   { border-right: none; }
+    /* last two items: no bottom border since strip has border-bottom */
+  }
+
+  .expertise-num {
+    font-family: var(--serif);
+    font-size: 2rem;
+    font-weight: 300;
+    color: var(--ink-faint);
+    display: block;
+    margin-bottom: 0.75rem;
+    line-height: 1;
+  }
+
+  .expertise-title {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--ink);
+    letter-spacing: 0.04em;
+    margin-bottom: 0.5rem;
+  }
+
+  .expertise-desc {
+    font-size: 12px;
+    color: var(--ink-muted);
+    line-height: 1.65;
+  }
+</style>
