@@ -5,8 +5,8 @@ backend:
   name: github
   repo: Hauzknecht/nanofiber-web
   branch: master
-  auth_type: implicit
-  base_url: https://github.com
+
+auth_endpoint: https://github.com/login/oauth/authorize
 
 # ─── Media ──────────────────────────────────────────────────
 # Images uploaded in the CMS are stored here
