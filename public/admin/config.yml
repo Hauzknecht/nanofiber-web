@@ -11,58 +11,32 @@ media_folder: "public/images/blog"
 public_folder: "/images/blog"
 site_url: https://nanofiber-web.pages.dev
 
-# ─── Shared field definitions ────────────────────────────────
 x-blog-fields: &blog-fields
-  - label: "Title"
-    name: "title"
-    widget: "string"
-
+  - { label: "Title",       name: "title",   widget: "string" }
   - label: "Publish Date"
     name: "date"
     widget: "datetime"
     format: "YYYY-MM-DD"
     date_format: "DD.MM.YYYY"
     time_format: false
-
-  - label: "Short Summary (shown in blog list)"
-    name: "excerpt"
-    widget: "string"
-
+  - { label: "Short Summary", name: "excerpt", widget: "string" }
   - label: "Category"
     name: "tag"
     widget: "select"
     options:
-      - { label: "Research / Výzkum",     value: "Research"  }
-      - { label: "Technical / Technické", value: "Technical" }
-      - { label: "Industry / Průmysl",    value: "Industry"  }
-      - { label: "News / Aktuality",      value: "News"      }
+      - { label: "Research",  value: "Research" }
+      - { label: "Technical", value: "Technical" }
+      - { label: "Industry",  value: "Industry" }
+      - { label: "News",      value: "News" }
+  - { label: "Author",       name: "author",  widget: "string", default: "Martina Říhová" }
+  - { label: "Translation slug (leave blank if filename matches)", name: "translationSlug", widget: "string", required: false }
+  - { label: "Cover Image",  name: "coverImage", widget: "image", required: false }
+  - { label: "Save as Draft", name: "draft",   widget: "boolean", default: false }
+  - { label: "Article Body", name: "body",    widget: "markdown" }
 
-  - label: "Author"
-    name: "author"
-    widget: "string"
-    default: "Martina Říhová"
-
-  - label: "Translation slug (leave blank if filename is identical in both languages)"
-    name: "translationSlug"
-    widget: "string"
-    required: false
-
-  - label: "Cover Image"
-    name: "coverImage"
-    widget: "image"
-    required: false
-
-  - label: "Save as Draft (hide from site)"
-    name: "draft"
-    widget: "boolean"
-    default: false
-
-  - label: "Article Body"
-    name: "body"
-    widget: "markdown"
-
-# ─── Collections ─────────────────────────────────────────────
 collections:
+
+  # ── Blog ────────────────────────────────────────────────────
   - name: "blog-en"
     label: "🇬🇧 Blog — English"
     label_singular: "English Post"
@@ -82,3 +56,24 @@ collections:
     extension: "md"
     format: "frontmatter"
     fields: *blog-fields
+
+  # ── Publications ─────────────────────────────────────────────
+  # Single JSON file — she adds/edits entries in a list widget
+  - name: "publications"
+    label: "📄 Publications"
+    files:
+      - label: "All Publications"
+        name: "publications"
+        file: "src/content/publications/publications.json"
+        fields:
+          - label: "Publications"
+            name: "publications"  
+            widget: "list"
+            label_singular: "Publication"
+            summary: "{{fields.year}} — {{fields.title}}"
+            fields:
+              - { label: "Title",   name: "title",   widget: "string" }
+              - { label: "Authors", name: "authors", widget: "string", hint: "e.g. Nováková J., Kolář M." }
+              - { label: "Year",    name: "year",    widget: "number", value_type: "int" }
+              - { label: "Abstract / Short description", name: "abstract", widget: "text", required: false }
+              - { label: "Link (DOI or URL)", name: "url", widget: "string", required: false, hint: "e.g. https://doi.org/10.1000/xyz" }

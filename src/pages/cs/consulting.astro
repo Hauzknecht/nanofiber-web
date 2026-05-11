@@ -1,0 +1,89 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { useT } from '../../i18n/translations';
+
+const lang = 'cs' as const;
+---
+
+<BaseLayout lang={lang} title="Spolupráce — Martina Říhová" description="Vědecké poradenství a R&D konzultace pro kosmetické firmy zaměřené na nanovláknové technologie.">
+
+  <div class="consulting-page">
+
+    <header class="page-header">
+      <p class="eyebrow">Spolupracujme</p>
+      <h1 class="page-title">Věda, která se stává <em>produktem.</em></h1>
+      <p class="page-intro">Spolupracuji s kosmetickými značkami, výrobci surovin a startupy jako vědecká konzultantka — pomáhám týmům orientovat se v technické složitosti formulací na bázi nanovláken od prvotního konceptu až po prototyp.</p>
+    </header>
+
+    <div class="services-grid">
+      <div class="service-card">
+        <span class="service-num">01</span>
+        <h2 class="service-title">R&D poradenství</h2>
+        <p class="service-desc">Odborné vedení při výběru elektrostatického zvlákňování, polymerů a návrhu formulací. Ideální pro týmy vyvíjející nové systémy doručování nebo optimalizující stávající.</p>
+      </div>
+      <div class="service-card">
+        <span class="service-num">02</span>
+        <h2 class="service-title">Technické zprávy</h2>
+        <p class="service-desc">Literární rešerše, hodnocení proveditelnosti a white papers na témata kosmetiky s nanovlákny. Vhodné pro interní strategii nebo podporu regulatorních podání.</p>
+      </div>
+      <div class="service-card">
+        <span class="service-num">03</span>
+        <h2 class="service-title">Workshopy a školení</h2>
+        <p class="service-desc">Prezenční nebo vzdálené semináře pro R&D týmy. Témata od základů elektrostatického zvlákňování po pokročilé charakterizační techniky pro vlákna kosmetické kvality.</p>
+      </div>
+      <div class="service-card">
+        <span class="service-num">04</span>
+        <h2 class="service-title">Poradní sbor</h2>
+        <p class="service-desc">Průběžný vědecký poradní vztah. Měsíční konzultace, sledování literatury a strategický vstup do inovačních plánů.</p>
+      </div>
+    </div>
+
+    <div class="bottom-row">
+      <div class="ideal-for">
+        <p class="section-label">Vhodné pro</p>
+        <ul class="ideal-list">
+          <li>Kosmetické značky zkoumající inovace v oblasti doručování aktivních látek</li>
+          <li>Dodavatele surovin vyvíjející nanovláknové materiály</li>
+          <li>Biotech a femtech startupy v oblasti péče o pleť</li>
+          <li>Investory potřebující vědeckou due diligence</li>
+        </ul>
+      </div>
+
+      <div class="cta-box">
+        <p class="section-label">Začněme konverzaci</p>
+        <h3 class="cta-headline">Zájem o spolupráci?</h3>
+        <p class="cta-desc">Napište mi o svém projektu a ozveme se do 48 hodin.</p>
+        <a class="btn-primary" href="/cs/contact">Napsat zprávu</a>
+      </div>
+    </div>
+
+  </div>
+
+</BaseLayout>
+
+<style>
+  .consulting-page { max-width: 960px; margin: 0 auto; }
+  .page-header { padding: var(--sp-8) var(--section-px) var(--sp-6); border-bottom: var(--border); display: flex; flex-direction: column; gap: var(--sp-3); max-width: 680px; }
+  .page-title { font-family: var(--serif); font-size: clamp(2.4rem, 5vw, 3.5rem); font-weight: 300; line-height: 1.05; color: var(--ink); }
+  .page-title em { font-style: italic; color: var(--accent); }
+  .page-intro { font-size: 15px; color: var(--ink-muted); line-height: 1.8; font-weight: 300; }
+  .services-grid { display: grid; grid-template-columns: 1fr 1fr; border-bottom: var(--border); }
+  @media (max-width: 600px) { .services-grid { grid-template-columns: 1fr; } }
+  .service-card { padding: var(--sp-6) var(--section-px); border-right: var(--border); border-bottom: var(--border); display: flex; flex-direction: column; gap: 0.75rem; }
+  .service-card:nth-child(2n) { border-right: none; }
+  .service-card:nth-child(3), .service-card:nth-child(4) { border-bottom: none; }
+  @media (max-width: 600px) { .service-card { border-right: none; } .service-card:nth-child(3) { border-bottom: var(--border); } .service-card:nth-child(4) { border-bottom: none; } }
+  .service-num { font-family: var(--serif); font-size: 2rem; font-weight: 300; color: var(--ink-faint); line-height: 1; }
+  .service-title { font-size: 15px; font-weight: 500; color: var(--ink); letter-spacing: 0.02em; }
+  .service-desc { font-size: 13px; color: var(--ink-muted); line-height: 1.7; }
+  .bottom-row { display: grid; grid-template-columns: 1fr 1fr; }
+  @media (max-width: 600px) { .bottom-row { grid-template-columns: 1fr; } }
+  .ideal-for { padding: var(--sp-6) var(--section-px); border-right: var(--border); }
+  @media (max-width: 600px) { .ideal-for { border-right: none; border-bottom: var(--border); } }
+  .ideal-list { list-style: none; display: flex; flex-direction: column; gap: 0.75rem; }
+  .ideal-list li { font-size: 14px; color: var(--ink-muted); line-height: 1.5; padding-left: 1.25rem; position: relative; }
+  .ideal-list li::before { content: '—'; position: absolute; left: 0; color: var(--ink-faint); font-size: 12px; }
+  .cta-box { padding: var(--sp-6) var(--section-px); display: flex; flex-direction: column; gap: 0.75rem; justify-content: center; background: var(--accent-light); }
+  .cta-headline { font-family: var(--serif); font-size: 1.4rem; font-weight: 300; color: var(--ink); }
+  .cta-desc { font-size: 13px; color: var(--ink-muted); line-height: 1.65; }
+</style>

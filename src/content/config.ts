@@ -8,14 +8,20 @@ const blogSchema = z.object({
   author:          z.string().default('Martina Říhová'),
   draft:           z.boolean().default(false),
   coverImage:      z.string().optional(),
-  // Slug of the matching post in the other language (optional)
   translationSlug: z.string().optional(),
 });
 
-const blogEn = defineCollection({ type: 'content', schema: blogSchema });
-const blogCs = defineCollection({ type: 'content', schema: blogSchema });
+// Simple publication schema — CMS-driven
+const publicationSchema = z.object({
+  title:    z.string(),
+  authors:  z.string(),
+  year:     z.number(),
+  abstract: z.string().optional(),
+  url:      z.string().optional(),
+});
 
 export const collections = {
-  'blog-en': blogEn,
-  'blog-cs': blogCs,
+  'blog-en':      defineCollection({ type: 'content', schema: blogSchema }),
+  'blog-cs':      defineCollection({ type: 'content', schema: blogSchema }),
+  'publications': defineCollection({ type: 'data',    schema: z.array(publicationSchema) }),
 };
