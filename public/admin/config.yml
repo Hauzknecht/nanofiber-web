@@ -1,82 +1,83 @@
-# ─── Backend ────────────────────────────────────────────────
-# Decap CMS talks directly to GitHub on your girlfriend's behalf.
-# She logs in with GitHub OAuth — Cloudflare handles the auth flow.
+# ─── Backend ─────────────────────────────────────────────────
 backend:
   name: github
   repo: Hauzknecht/nanofiber-web
-  branch: master
-  # Remove any Netlify-specific settings
-  site_domain: your-cloudflare-pages-domain.pages.dev
+  branch: main
 
-publish_mode: editorial_workflow
-media_folder: "public/images/uploads"
-public_folder: "/images/uploads"
+media_folder: "public/images/blog"
+public_folder: "/images/blog"
+site_url: https://nanofiber-web.pages.dev
 
-# Add this to ensure proper OAuth redirect
-local_backend: false
+# ─── Shared field definitions (YAML anchors) ─────────────────
+# These are reused in both EN and CS collections below
+x-blog-fields: &blog-fields
+  - label: "Title"
+    name: "title"
+    widget: "string"
 
-# ─── Site URL (used for preview links) ──────────────────────
-site_url: https://nanofiber-web.pages.dev          # ← change this
+  - label: "Publish Date"
+    name: "date"
+    widget: "datetime"
+    format: "YYYY-MM-DD"
+    date_format: "DD.MM.YYYY"
+    time_format: false
 
-# ─── Collections ────────────────────────────────────────────
+  - label: "Short Summary (shown in blog list)"
+    name: "excerpt"
+    widget: "string"
+
+  - label: "Category"
+    name: "tag"
+    widget: "select"
+    options:
+      - { label: "Research / Výzkum",    value: "Research"  }
+      - { label: "Technical / Technické", value: "Technical" }
+      - { label: "Industry / Průmysl",   value: "Industry"  }
+      - { label: "News / Aktuality",     value: "News"       }
+
+  - label: "Author"
+    name: "author"
+    widget: "string"
+    default: "Jana Nováková"
+
+  - label: "Translation slug (slug of the matching post in the other language)"
+    name: "translationSlug"
+    widget: "string"
+    required: false
+    hint: "If the other-language version of this post has a different filename, enter it here. Usually you can leave this blank."
+
+  - label: "Cover Image"
+    name: "coverImage"
+    widget: "image"
+    required: false
+
+  - label: "Save as Draft (hide from site)"
+    name: "draft"
+    widget: "boolean"
+    default: false
+
+  - label: "Article Body"
+    name: "body"
+    widget: "markdown"
+
+# ─── Collections ─────────────────────────────────────────────
 collections:
-  - name: "blog"
-    label: "Blog Posts"
-    label_singular: "Blog Post"
-    folder: "src/content/blog"
+  - name: "blog-en"
+    label: "🇬🇧 Blog — English"
+    label_singular: "English Post"
+    folder: "src/content/blog-en"
     create: true
-    slug: "{{slug}}"              # filename = url-friendly title
+    slug: "{{slug}}"
     extension: "md"
     format: "frontmatter"
+    fields: *blog-fields
 
-    # What your girlfriend sees in the editor
-    fields:
-      - label: "Title"
-        name: "title"
-        widget: "string"
-        hint: "The headline of your article"
-
-      - label: "Publish Date"
-        name: "date"
-        widget: "datetime"
-        format: "YYYY-MM-DD"
-        date_format: "DD.MM.YYYY"   # shown in the UI
-        time_format: false
-        hint: "When this article was written"
-
-      - label: "Short Summary"
-        name: "excerpt"
-        widget: "string"
-        hint: "One or two sentences shown on the blog list page"
-
-      - label: "Category"
-        name: "tag"
-        widget: "select"
-        options:
-          - { label: "Research",  value: "Research" }
-          - { label: "Technical", value: "Technical" }
-          - { label: "Industry",  value: "Industry" }
-          - { label: "News",      value: "News" }
-        hint: "Pick the closest category"
-
-      - label: "Author"
-        name: "author"
-        widget: "string"
-        default: "Martina Říhová"
-
-      - label: "Cover Image"
-        name: "coverImage"
-        widget: "image"
-        required: false
-        hint: "Optional — shown at the top of the article"
-
-      - label: "Save as Draft (hide from site)"
-        name: "draft"
-        widget: "boolean"
-        default: false
-        hint: "Turn on to save without publishing"
-
-      - label: "Article Body"
-        name: "body"
-        widget: "markdown"
-        hint: "Write your article here. Use the toolbar to add headings, bold, links, etc."
+  - name: "blog-cs"
+    label: "🇨🇿 Blog — Česky"
+    label_singular: "Český příspěvek"
+    folder: "src/content/blog-cs"
+    create: true
+    slug: "{{slug}}"
+    extension: "md"
+    format: "frontmatter"
+    fields: *blog-fields
