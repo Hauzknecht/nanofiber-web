@@ -18,8 +18,10 @@ const links = [
   { label: tr.nav.contact,      href: `/${lang}/contact`       },
 ];
 
-const otherLang     = lang === 'en' ? 'cs' : 'en';
-const otherLangPath = alternatePath(pathname, lang);
+// Build the exact alternate-language URL for the current page
+// e.g. /en/blog/my-post  →  /cs/blog/my-post
+const enPath = lang === 'en' ? pathname : alternatePath(pathname, lang);
+const csPath = lang === 'cs' ? pathname : alternatePath(pathname, lang);
 ---
 
 <nav class="nav">
@@ -41,8 +43,8 @@ const otherLangPath = alternatePath(pathname, lang);
   </ul>
 
   <div class="nav-lang">
-    <a href={`/en/`}         class:list={['lang-btn', { active: lang === 'en' }]}>EN</a>
-    <a href={`/cs/`}         class:list={['lang-btn', { active: lang === 'cs' }]}>CS</a>
+    <a href={enPath} class:list={['lang-btn', { active: lang === 'en' }]}>EN</a>
+    <a href={csPath} class:list={['lang-btn', { active: lang === 'cs' }]}>CS</a>
   </div>
 
   <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
@@ -57,8 +59,8 @@ const otherLangPath = alternatePath(pathname, lang);
     ))}
   </ul>
   <div class="mobile-lang">
-    <a href={`/en/`} class:list={['lang-btn', { active: lang === 'en' }]}>EN</a>
-    <a href={`/cs/`} class:list={['lang-btn', { active: lang === 'cs' }]}>CS</a>
+    <a href={enPath} class:list={['lang-btn', { active: lang === 'en' }]}>EN</a>
+    <a href={csPath} class:list={['lang-btn', { active: lang === 'cs' }]}>CS</a>
   </div>
 </div>
 
@@ -136,12 +138,8 @@ const otherLangPath = alternatePath(pathname, lang);
     margin-left: auto;
   }
   .hamburger span {
-    display: block;
-    width: 22px;
-    height: 1px;
-    background: var(--ink);
-    transition: all 0.25s;
-    transform-origin: center;
+    display: block; width: 22px; height: 1px;
+    background: var(--ink); transition: all 0.25s; transform-origin: center;
   }
   .hamburger.open span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
   .hamburger.open span:nth-child(2) { opacity: 0; }
@@ -162,18 +160,12 @@ const otherLangPath = alternatePath(pathname, lang);
 
   .mobile-links { list-style: none; display: flex; flex-direction: column; }
   .mobile-link {
-    display: block;
-    padding: 1rem var(--section-px);
-    font-size: 13px;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--ink-muted);
-    text-decoration: none;
-    border-bottom: var(--border);
+    display: block; padding: 1rem var(--section-px);
+    font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--ink-muted); text-decoration: none; border-bottom: var(--border);
     transition: color 0.2s, background 0.2s;
   }
   .mobile-link:hover { color: var(--ink); background: var(--accent-light); }
-
   .mobile-lang { display: flex; gap: 0.5rem; padding: 1rem var(--section-px); }
 </style>
 

@@ -1,9 +1,7 @@
-# ─── Backend ─────────────────────────────────────────────────
 backend:
   name: github
-  repo: Hauzknecht/nanofiber-web
+  repo: Hauyknecht/nanofiber-web
   branch: master
-  # These two lines are the fix — point auth at YOUR site, not Netlify
   base_url: https://nanofiber-web.pages.dev
   auth_endpoint: /api/auth
 

@@ -288,7 +288,8 @@ export function useT(lang: Lang) { return t[lang]; }
 
 export function alternatePath(pathname: string, currentLang: Lang): string {
   const other = currentLang === 'en' ? 'cs' : 'en';
-  return pathname.replace(`/${currentLang}/`, `/${other}/`).replace(`/${currentLang}`, `/${other}`);
+  // Anchored replace: only swap the /en or /cs at the very start of the path
+  return pathname.replace(new RegExp(`^/(${currentLang})(/|$)`), `/${other}$2`);
 }
 
 export function formatDate(date: Date, lang: Lang): string {

@@ -1,30 +1,32 @@
-[
-  {
-    "title": "Electrospun nanofiber membranes as transdermal delivery vehicles for vitamin C derivatives",
-    "authors": "Nováková J., Kolář M., Šimánek V.",
-    "year": 2024,
-    "abstract": "This study investigates the use of electrospun PVA/PVP composite membranes as transdermal delivery systems for ascorbic acid derivatives, demonstrating superior skin penetration compared to conventional emulsion formulations.",
-    "url": "https://doi.org/10.1111/example.2024"
-  },
-  {
-    "title": "Biocompatibility assessment of polymer nanofiber scaffolds for cosmetic applications",
-    "authors": "Nováková J., Dvořák P.",
-    "year": 2023,
-    "abstract": "A systematic biocompatibility evaluation of electrospun scaffolds from five cosmetic-grade polymers using standardised ISO 10993 protocols.",
-    "url": "https://doi.org/10.1016/example.2023"
-  },
-  {
-    "title": "Retinol stabilisation in electrospun nanofiber matrices: a comparative study",
-    "authors": "Nováková J., Ruml T., Kolář M.",
-    "year": 2023,
-    "abstract": "Comparison of retinol stability in PVP, PVA, and zein nanofiber matrices under accelerated aging conditions, showing 18-month shelf-life at room temperature.",
-    "url": ""
-  },
-  {
-    "title": "Electrospinning of Natural Polymers for Cosmetic Delivery Systems",
-    "authors": "Nováková J.",
-    "year": 2024,
-    "abstract": "Invited conference talk presenting results on natural polymer nanofiber fabrication for cosmetic active delivery.",
-    "url": ""
-  }
-]
+{
+  "publications": [
+    {
+      "title": "Electrospun nanofiber membranes as transdermal delivery vehicles for vitamin C derivatives",
+      "authors": "Nováková J., Kolář M., Šimánek V.",
+      "year": 2024,
+      "abstract": "This study investigates the use of electrospun PVA/PVP composite membranes as transdermal delivery systems for ascorbic acid derivatives, demonstrating superior skin penetration compared to conventional emulsion formulations.",
+      "url": "https://doi.org/10.1111/example.2024"
+    },
+    {
+      "title": "Biocompatibility assessment of polymer nanofiber scaffolds for cosmetic applications",
+      "authors": "Nováková J., Dvořák P.",
+      "year": 2023,
+      "abstract": "A systematic biocompatibility evaluation of electrospun scaffolds from five cosmetic-grade polymers using standardised ISO 10993 protocols.",
+      "url": "https://doi.org/10.1016/example.2023"
+    },
+    {
+      "title": "Retinol stabilisation in electrospun nanofiber matrices: a comparative study",
+      "authors": "Nováková J., Ruml T., Kolář M.",
+      "year": 2023,
+      "abstract": "Comparison of retinol stability in PVP, PVA, and zein nanofiber matrices under accelerated aging conditions.",
+      "url": ""
+    },
+    {
+      "title": "Electrospinning of Natural Polymers for Cosmetic Delivery Systems",
+      "authors": "Nováková J.",
+      "year": 2024,
+      "abstract": "Invited conference talk presenting results on natural polymer nanofiber fabrication for cosmetic active delivery.",
+      "url": ""
+    }
+  ]
+}
