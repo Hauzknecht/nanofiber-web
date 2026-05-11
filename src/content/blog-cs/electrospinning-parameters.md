@@ -3,7 +3,7 @@ title: "Parametry elektrostatického zvlákňování pro nanovlákna kosmetické
 date: 2025-01-15
 excerpt: "Praktický průvodce napětím, průtokem a vzdáleností kolektoru při práci s polymery vhodnými pro kontakt s kůží."
 tag: Technické
-author: Martina Říhová
+author: Jana Nováková
 translationSlug: electrospinning-parameters
 ---
 

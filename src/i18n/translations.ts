@@ -70,9 +70,9 @@ export const t = {
     },
     // Meta
     meta: {
-      site_title: 'Martina Říhová — Nanofiber Research',
+      site_title: 'Jana Nováková — Nanofiber Research',
       site_desc:  'PhD researcher specialising in electrospun nanofibers for cosmetic applications. Scientific consulting, publications and industry collaboration.',
-      blog_title: 'Blog — Martina Říhová',
+      blog_title: 'Blog — Jana Nováková',
       blog_desc:  'Research insights, technical guides, and industry perspectives on nanofibers in cosmetics.',
     },
   },
@@ -137,9 +137,9 @@ export const t = {
       ],
     },
     meta: {
-      site_title: 'Martina Říhová — Výzkum nanovláken',
+      site_title: 'Jana Nováková — Výzkum nanovláken',
       site_desc:  'PhD výzkumnice specializující se na elektrostaticky zvlákněná nanovlákna pro kosmetické aplikace. Vědecké poradenství, publikace a průmyslová spolupráce.',
-      blog_title: 'Blog — Martina Říhová',
+      blog_title: 'Blog — Jana Nováková',
       blog_desc:  'Vědecké pohledy na nanovlákna, elektrostatické zvlákňování a inovace v kosmetice.',
     },
   },

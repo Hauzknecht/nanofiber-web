@@ -5,7 +5,7 @@ const blogSchema = z.object({
   date:            z.date(),
   excerpt:         z.string(),
   tag:             z.string(),
-  author:          z.string().default('Martina Říhová'),
+  author:          z.string().default('Jana Nováková'),
   draft:           z.boolean().default(false),
   coverImage:      z.string().optional(),
   // Slug of the matching post in the other language (optional)
