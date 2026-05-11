@@ -40,7 +40,7 @@ x-blog-fields: &blog-fields
   - label: "Author"
     name: "author"
     widget: "string"
-    default: "Jana Nováková"
+    default: "Martina Říhová"
 
   - label: "Translation slug (leave blank if filename is identical in both languages)"
     name: "translationSlug"

@@ -3,7 +3,7 @@ title: "Proč by nanovlákna mohla nahradit klasické pleťové masky"
 date: 2025-03-10
 excerpt: "Trh s pleťovými maskami dosahuje 1,5 miliardy dolarů. Jejich účinnost při doručování látek je ale překvapivě omezená. Co mění nanovlákna?"
 tag: Průmysl
-author: Jana Nováková
+author: Martina Říhová
 translationSlug: nanofibers-vs-sheet-masks
 ---
 

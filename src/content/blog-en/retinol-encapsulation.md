@@ -3,7 +3,7 @@ title: "Retinol encapsulation: the nanofiber approach"
 date: 2024-11-20
 excerpt: "Retinol is notoriously unstable. This is how nanofiber matrices offer a novel stabilisation strategy."
 tag: Research
-author: Jana Nováková
+author: Martina Říhová
 ---
 
 Retinol degrades rapidly when exposed to light, heat, and oxygen. The cosmetic industry has spent decades trying to solve this with liposomes, cyclodextrins, and encapsulated microspheres — with mixed results.

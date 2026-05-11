@@ -3,7 +3,7 @@ title: "Enkapsulace retinolu: přístup pomocí nanovláken"
 date: 2024-11-20
 excerpt: "Retinol je notoricky nestabilní. Nanovláknité matrice nabízejí novou strategii stabilizace."
 tag: Výzkum
-author: Jana Nováková
+author: Martina Říhová
 translationSlug: retinol-encapsulation
 ---
 
