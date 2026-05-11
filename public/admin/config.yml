@@ -62,7 +62,7 @@ collections:
       - label: "Author"
         name: "author"
         widget: "string"
-        default: "Jana Nováková"
+        default: "Martina Říhová"
 
       - label: "Cover Image"
         name: "coverImage"

@@ -1,45 +1,49 @@
 ---
+import type { Lang } from '../i18n/translations';
+import { useT } from '../i18n/translations';
+
 interface Props {
-  name?: string;
-  title?: string;
-  description?: string;
+  lang: Lang;
   stats?: { num: string; label: string }[];
   latestPublication?: { title: string; journal: string; year: string; tag: string };
 }
 
 const {
-  name = "Martina Říhová",
-  title = "Engineering beauty at the <em>nanoscale.</em>",
-  description = "Research at the intersection of electrospinning, nanotechnology, and cosmetic science — creating next-generation delivery systems for skincare actives.",
+  lang,
   stats = [
-    { num: "12+", label: "Publications" },
-    { num: "5",   label: "Years research" },
-    { num: "3",   label: "Industry projects" },
+    { num: '12+', label: '' },
+    { num: '5',   label: '' },
+    { num: '3',   label: '' },
   ],
   latestPublication = {
-    title:   "Electrospun nanofiber membranes as transdermal delivery vehicles for vitamin C derivatives",
-    journal: "Journal of Cosmetic Science",
-    year:    "2024",
-    tag:     "Electrospinning",
+    title:   'Electrospun nanofiber membranes as transdermal delivery vehicles for vitamin C derivatives',
+    journal: 'Journal of Cosmetic Science',
+    year:    '2024',
+    tag:     'Electrospinning',
   },
 } = Astro.props;
+
+const tr = useT(lang);
+
+// Merge translated labels into stats
+const mergedStats = stats.map((s, i) => ({
+  num:   s.num,
+  label: tr.hero.stat_labels[i] ?? s.label,
+}));
 ---
 
 <section class="hero">
-  <!-- Left: copy -->
   <div class="hero-left">
-    <p class="eyebrow">PhD Researcher · Nanofibers in Cosmetics</p>
-    <h1 class="hero-title" set:html={title} />
-    <p class="hero-desc">{description}</p>
+    <p class="eyebrow">{tr.hero.eyebrow}</p>
+    <h1 class="hero-title" set:html={tr.hero.title} />
+    <p class="hero-desc">{tr.hero.description}</p>
     <div class="hero-ctas">
-      <a class="btn-primary" href="/research">Explore research</a>
-      <a class="btn-ghost"   href="/contact">Get in touch</a>
+      <a class="btn-primary" href={`/${lang}/research`}>{tr.hero.cta_primary}</a>
+      <a class="btn-ghost"   href={`/${lang}/contact`}>{tr.hero.cta_ghost}</a>
     </div>
   </div>
 
-  <!-- Right: visual panel -->
   <div class="hero-right">
-    <!-- Animated fiber SVG background -->
     <svg class="fiber-art" viewBox="0 0 600 700" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
       <path d="M-20 200 Q150 100 300 250 T620 200"   stroke="#3B4A3E" stroke-width="1.5" fill="none"/>
       <path d="M-20 280 Q200 150 350 310 T640 260"   stroke="#3B4A3E" stroke-width="1"   fill="none"/>
@@ -57,19 +61,16 @@ const {
     </svg>
 
     <div class="hero-right-content">
-      <!-- Stats -->
       <div class="stat-row">
-        {stats.map(s => (
+        {mergedStats.map(s => (
           <div class="stat-item">
             <span class="stat-num">{s.num}</span>
             <span class="stat-label">{s.label}</span>
           </div>
         ))}
       </div>
-
-      <!-- Latest publication card -->
       <div class="pub-card">
-        <div class="pub-card-label">Latest publication</div>
+        <div class="pub-card-label">{tr.hero.pub_label}</div>
         <div class="pub-card-title">{latestPublication.title}</div>
         <div class="pub-card-meta">
           <span class="tag">{latestPublication.tag}</span>
@@ -81,20 +82,9 @@ const {
 </section>
 
 <style>
-  .hero {
-    display: grid;
-    grid-template-columns: 1fr;
-    border-bottom: var(--border);
-  }
+  .hero { display: grid; grid-template-columns: 1fr; border-bottom: var(--border); }
+  @media (min-width: 900px) { .hero { grid-template-columns: 1fr 1fr; min-height: 88vh; } }
 
-  @media (min-width: 900px) {
-    .hero {
-      grid-template-columns: 1fr 1fr;
-      min-height: 88vh;
-    }
-  }
-
-  /* ── Left ── */
   .hero-left {
     padding: var(--sp-8) var(--section-px);
     display: flex;
@@ -103,13 +93,8 @@ const {
     gap: var(--sp-3);
     border-bottom: var(--border);
   }
-
   @media (min-width: 900px) {
-    .hero-left {
-      border-bottom: none;
-      border-right: var(--border);
-      gap: 0;
-    }
+    .hero-left { border-bottom: none; border-right: var(--border); gap: 0; }
     .hero-left .eyebrow   { margin-bottom: var(--sp-4); }
     .hero-left .hero-desc { margin-bottom: var(--sp-6); }
   }
@@ -122,27 +107,11 @@ const {
     letter-spacing: -0.01em;
     color: var(--ink);
   }
-  .hero-title :global(em) {
-    font-style: italic;
-    color: var(--accent);
-  }
+  .hero-title :global(em) { font-style: italic; color: var(--accent); }
 
-  .hero-desc {
-    font-size: 15px;
-    color: var(--ink-muted);
-    max-width: 400px;
-    line-height: 1.8;
-    font-weight: 300;
-  }
+  .hero-desc { font-size: 15px; color: var(--ink-muted); max-width: 400px; line-height: 1.8; font-weight: 300; }
+  .hero-ctas { display: flex; flex-wrap: wrap; gap: 1.25rem; align-items: center; }
 
-  .hero-ctas {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1.25rem;
-    align-items: center;
-  }
-
-  /* ── Right ── */
   .hero-right {
     position: relative;
     display: flex;
@@ -153,86 +122,22 @@ const {
     background: var(--accent-light);
     min-height: 340px;
   }
-
-  @media (min-width: 900px) {
-    .hero-right { min-height: unset; }
-  }
+  @media (min-width: 900px) { .hero-right { min-height: unset; } }
 
   .fiber-art {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    opacity: 0.18;
-    pointer-events: none;
+    position: absolute; inset: 0; width: 100%; height: 100%;
+    opacity: 0.18; pointer-events: none;
   }
+  .hero-right-content { position: relative; z-index: 2; }
 
-  .hero-right-content {
-    position: relative;
-    z-index: 2;
-  }
-
-  .stat-row {
-    display: flex;
-    gap: var(--sp-4);
-    margin-bottom: var(--sp-4);
-    border-top: var(--border);
-    padding-top: var(--sp-3);
-  }
-
+  .stat-row { display: flex; gap: var(--sp-4); margin-bottom: var(--sp-4); border-top: var(--border); padding-top: var(--sp-3); }
   .stat-item { flex: 1; }
+  .stat-num { font-family: var(--serif); font-size: clamp(2rem, 4vw, 2.8rem); font-weight: 300; color: var(--ink); line-height: 1; display: block; }
+  .stat-label { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-muted); margin-top: 0.4rem; display: block; }
 
-  .stat-num {
-    font-family: var(--serif);
-    font-size: clamp(2rem, 4vw, 2.8rem);
-    font-weight: 300;
-    color: var(--ink);
-    line-height: 1;
-    display: block;
-  }
-
-  .stat-label {
-    font-size: 11px;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--ink-muted);
-    margin-top: 0.4rem;
-    display: block;
-  }
-
-  .pub-card {
-    background: white;
-    border: var(--border);
-    padding: 1.25rem;
-    border-radius: 3px;
-  }
-
-  .pub-card-label {
-    font-size: 10px;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--ink-muted);
-    margin-bottom: 0.6rem;
-  }
-
-  .pub-card-title {
-    font-family: var(--serif);
-    font-size: 1.1rem;
-    font-weight: 400;
-    color: var(--ink);
-    line-height: 1.3;
-    margin-bottom: 0.75rem;
-  }
-
-  .pub-card-meta {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 0.75rem;
-  }
-
-  .pub-card-journal {
-    font-size: 12px;
-    color: var(--ink-muted);
-  }
+  .pub-card { background: white; border: var(--border); padding: 1.25rem; border-radius: 3px; }
+  .pub-card-label { font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-muted); margin-bottom: 0.6rem; }
+  .pub-card-title { font-family: var(--serif); font-size: 1.1rem; font-weight: 400; color: var(--ink); line-height: 1.3; margin-bottom: 0.75rem; }
+  .pub-card-meta { display: flex; flex-wrap: wrap; align-items: center; gap: 0.75rem; }
+  .pub-card-journal { font-size: 12px; color: var(--ink-muted); }
 </style>

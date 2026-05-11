@@ -1,0 +1,74 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { useT, formatDate } from '../../../i18n/translations';
+
+const lang = 'cs' as const;
+const tr = useT(lang);
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog-cs');
+  return posts.map(post => ({ params: { slug: post.slug }, props: { post } }));
+}
+
+const { post } = Astro.props;
+const { Content } = await post.render();
+
+const enSlug = post.data.translationSlug ?? post.slug;
+---
+<BaseLayout
+  lang={lang}
+  title={`${post.data.title} — Martina Říhová`}
+  description={post.data.excerpt}
+>
+  <article class="post">
+    <div class="post-back">
+      <a href="/cs/blog" class="btn-ghost" style="font-size:11px;">{tr.blog.back}</a>
+      <a href={`/en/blog/${enSlug}`} class="lang-switch">Read in English →</a>
+    </div>
+    <header class="post-header">
+      <div class="post-header-meta">
+        <span class="tag">{post.data.tag}</span>
+        <time datetime={post.data.date.toISOString()} class="post-date">{formatDate(post.data.date, lang)}</time>
+      </div>
+      <h1 class="post-title">{post.data.title}</h1>
+      <p class="post-excerpt">{post.data.excerpt}</p>
+      <div class="post-byline">{tr.blog.by}: {post.data.author}</div>
+    </header>
+    {post.data.coverImage && (
+      <div class="post-cover"><img src={post.data.coverImage} alt={post.data.title} /></div>
+    )}
+    <div class="post-body"><Content /></div>
+    <div class="post-footer">
+      <a href="/cs/blog" class="btn-primary">← {tr.blog.read_more}</a>
+      <a href="/cs/contact" class="btn-ghost">{tr.blog.get_in_touch}</a>
+    </div>
+  </article>
+</BaseLayout>
+<style>
+  .post { max-width: 720px; margin: 0 auto; padding: 0 var(--section-px); }
+  .post-back { padding: var(--sp-4) 0; border-bottom: var(--border); padding-bottom: var(--sp-3); display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem; }
+  .lang-switch { font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-muted); text-decoration: none; transition: color 0.2s; }
+  .lang-switch:hover { color: var(--ink); }
+  .post-header { padding: var(--sp-6) 0; border-bottom: var(--border); display: flex; flex-direction: column; gap: var(--sp-3); }
+  .post-header-meta { display: flex; align-items: center; gap: 0.75rem; flex-wrap: wrap; }
+  .post-date { font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-muted); }
+  .post-title { font-family: var(--serif); font-size: clamp(2rem, 5vw, 3rem); font-weight: 300; line-height: 1.08; color: var(--ink); }
+  .post-excerpt { font-size: 16px; color: var(--ink-muted); line-height: 1.7; font-weight: 300; font-style: italic; font-family: var(--serif); border-left: 2px solid var(--ink-faint); padding-left: 1rem; }
+  .post-byline { font-size: 12px; letter-spacing: 0.08em; color: var(--ink-muted); text-transform: uppercase; }
+  .post-cover { margin: var(--sp-4) 0; border-radius: 3px; overflow: hidden; border: var(--border); }
+  .post-cover img { width: 100%; aspect-ratio: 16/9; object-fit: cover; }
+  .post-body { padding: var(--sp-6) 0; font-size: 16px; line-height: 1.85; color: var(--ink-muted); font-weight: 300; border-bottom: var(--border); }
+  .post-body :global(h2) { font-family: var(--serif); font-size: 1.6rem; font-weight: 300; color: var(--ink); margin: 2.5rem 0 1rem; line-height: 1.2; }
+  .post-body :global(h3) { font-size: 14px; font-weight: 500; color: var(--ink); letter-spacing: 0.08em; text-transform: uppercase; margin: 2rem 0 0.75rem; }
+  .post-body :global(p) { margin-bottom: 1.5rem; }
+  .post-body :global(strong) { color: var(--ink); font-weight: 500; }
+  .post-body :global(em) { font-style: italic; color: var(--accent); font-family: var(--serif); }
+  .post-body :global(a) { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }
+  .post-body :global(ul), .post-body :global(ol) { padding-left: 1.5rem; margin-bottom: 1.5rem; }
+  .post-body :global(li) { margin-bottom: 0.4rem; }
+  .post-body :global(blockquote) { border-left: 2px solid var(--ink-faint); margin: 2rem 0; padding: 0.5rem 0 0.5rem 1.5rem; font-family: var(--serif); font-size: 1.15rem; font-style: italic; color: var(--ink); }
+  .post-body :global(code) { background: var(--accent-light); color: var(--accent); padding: 2px 6px; border-radius: 2px; font-size: 13px; font-family: monospace; }
+  .post-body :global(hr) { border: none; border-top: var(--border); margin: 2.5rem 0; }
+  .post-footer { padding: var(--sp-6) 0; display: flex; flex-wrap: wrap; gap: 1rem; align-items: center; }
+</style>

@@ -2,34 +2,46 @@
 import '../styles/global.css';
 import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
+import type { Lang } from '../i18n/translations';
+import { alternatePath } from '../i18n/translations';
 
 interface Props {
-  title?: string;
-  description?: string;
+  title:       string;
+  description: string;
+  lang:        Lang;
+  pathname?:   string;
 }
 
-const {
-  title = "Martina Říhová — Nanofiber Research",
-  description = "PhD researcher specialising in electrospun nanofibers for cosmetic applications. Scientific consulting, publications and industry collaboration."
-} = Astro.props;
+const { title, description, lang, pathname = Astro.url.pathname } = Astro.props;
+
+const alternateLang = lang === 'en' ? 'cs' : 'en';
+const base          = Astro.site?.href ?? 'https://example.com';
+const canonicalHref = new URL(pathname, base).href;
+const alternateHref = new URL(alternatePath(pathname, lang), base).href;
 ---
 
-<html lang="en">
+<html lang={lang}>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content={description} />
-    <meta property="og:title" content={title} />
-    <meta property="og:description" content={description} />
     <title>{title}</title>
+
+    <link rel="canonical"  href={canonicalHref} />
+    <link rel="alternate"  hreflang={lang}          href={canonicalHref} />
+    <link rel="alternate"  hreflang={alternateLang} href={alternateHref} />
+    <link rel="alternate"  hreflang="x-default"     href={canonicalHref} />
+
+    <meta property="og:title"       content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url"         content={canonicalHref} />
+    <meta property="og:type"        content="website" />
+
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   </head>
-
   <body>
-    <Nav />
-    <main>
-      <slot />
-    </main>
-    <Footer />
+    <Nav lang={lang} pathname={pathname} />
+    <main><slot /></main>
+    <Footer lang={lang} />
   </body>
 </html>

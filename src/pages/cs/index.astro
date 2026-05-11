@@ -1,0 +1,21 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Hero from '../../components/Hero.astro';
+import ExpertiseStrip from '../../components/ExpertiseStrip.astro';
+import About from '../../components/About.astro';
+import BlogPreview from '../../components/BlogPreview.astro';
+import LocationSection from '../../components/LocationSection.astro';
+
+const lang = 'cs' as const;
+---
+<BaseLayout
+  lang={lang}
+  title="Martina Říhová — Výzkum nanovláken"
+  description="PhD výzkumnice specializující se na elektrostaticky zvlákněná nanovlákna pro kosmetické aplikace."
+>
+  <Hero lang={lang} />
+  <ExpertiseStrip lang={lang} />
+  <About lang={lang} institution="Vaše univerzita" location="Česká republika" field="Nanotechnologie · Kosmetika" />
+  <BlogPreview lang={lang} />
+  <LocationSection lang={lang} lat={49.1951} lng={16.6068} cityName="Brno" country="Česká republika" />
+</BaseLayout>

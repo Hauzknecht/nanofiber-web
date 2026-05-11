@@ -1,0 +1,21 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Hero from '../../components/Hero.astro';
+import ExpertiseStrip from '../../components/ExpertiseStrip.astro';
+import About from '../../components/About.astro';
+import BlogPreview from '../../components/BlogPreview.astro';
+import LocationSection from '../../components/LocationSection.astro';
+
+const lang = 'en' as const;
+---
+<BaseLayout
+  lang={lang}
+  title="Martina Říhová — Nanofiber Research"
+  description="PhD researcher specialising in electrospun nanofibers for cosmetic applications."
+>
+  <Hero lang={lang} />
+  <ExpertiseStrip lang={lang} />
+  <About lang={lang} institution="Your University" location="Czech Republic" field="Nanotechnology · Cosmetics" />
+  <BlogPreview lang={lang} />
+  <LocationSection lang={lang} lat={49.1951} lng={16.6068} cityName="Brno" country="Czech Republic" />
+</BaseLayout>

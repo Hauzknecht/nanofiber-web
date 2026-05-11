@@ -1,53 +1,17 @@
 ---
-import BaseLayout from "../layouts/BaseLayout.astro";
-import Hero from "../components/Hero.astro";
-import ExpertiseStrip from "../components/ExpertiseStrip.astro";
-import About from "../components/About.astro";
-import BlogPreview from "../components/BlogPreview.astro";
-import LocationSection from "../components/LocationSection.astro";
-
-// ─── Edit your content here ───────────────────────────────
-const heroData = {
-  title: "Engineering beauty at the <em>nanoscale.</em>",
-  description:
-    "Research at the intersection of electrospinning, nanotechnology, and cosmetic science — creating next-generation delivery systems for skincare actives.",
-  stats: [
-    { num: "12+", label: "Publications" },
-    { num: "5",   label: "Years research" },
-    { num: "3",   label: "Industry projects" },
-  ],
-  latestPublication: {
-    title:   "Electrospun nanofiber membranes as transdermal delivery vehicles for vitamin C derivatives",
-    journal: "Journal of Cosmetic Science",
-    year:    "2024",
-    tag:     "Electrospinning",
-  },
-};
-
-const aboutData = {
-  body: [
-    "I am a PhD researcher specialising in the application of <strong>electrospun nanofibers</strong> to cosmetic formulation science. My work bridges fundamental polymer chemistry with real-world cosmetic product innovation — exploring how sub-micron fiber architectures can transform the way actives interact with the skin barrier.",
-    "Alongside my academic research, I work with cosmetic brands and ingredient companies as a <strong>scientific consultant</strong>, helping translate laboratory findings into viable product concepts.",
-  ],
-  institution: "Your University",
-  location:    "Czech Republic",
-  field:       "Nanotechnology · Cosmetics",
-  // photoSrc: "/images/portrait.jpg",  ← uncomment and add your photo to public/images/
-};
+// Detect browser language and redirect, defaulting to /en/
 ---
-
-<BaseLayout
-  title="Jana Nováková — Nanofiber Research"
-  description="PhD researcher specialising in electrospun nanofibers for cosmetic applications."
->
-  <Hero {...heroData} />
-  <ExpertiseStrip />
-  <About {...aboutData} />
-  <BlogPreview />
-  <LocationSection
-    lat={49.1951}
-    lng={16.6068}
-    cityName="Brno"
-    country="Czech Republic"
-  />
-</BaseLayout>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>Redirecting…</title>
+  <script>
+    const lang = (navigator.language || 'en').startsWith('cs') ? 'cs' : 'en';
+    window.location.replace('/' + lang + '/');
+  </script>
+  <!-- Fallback for no-JS -->
+  <meta http-equiv="refresh" content="0; url=/en/" />
+  <link rel="canonical" href="/en/" />
+</head>
+<body></body>
+</html>

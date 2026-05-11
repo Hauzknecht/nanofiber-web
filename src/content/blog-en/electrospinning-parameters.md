@@ -3,7 +3,7 @@ title: "Electrospinning parameters for cosmetic-grade fibers"
 date: 2025-01-15
 excerpt: "A practical guide to voltage, flow rate, and collector distance when working with skin-compatible polymers."
 tag: Technical
-author: Jana Nováková
+author: Martina Říhová
 ---
 
 Getting electrospinning parameters right for cosmetic applications is more nuanced than standard biomedical work. Skin-compatible polymers — PVA, PVP, zein, silk fibroin — each behave differently under the electric field.

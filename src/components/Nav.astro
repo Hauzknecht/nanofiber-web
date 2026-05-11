@@ -1,27 +1,38 @@
 ---
+import type { Lang } from '../i18n/translations';
+import { useT, alternatePath } from '../i18n/translations';
+
+interface Props {
+  lang:     Lang;
+  pathname: string;
+}
+
+const { lang, pathname } = Astro.props;
+const tr = useT(lang);
+
 const links = [
-  { label: "Research",     href: "/research" },
-  { label: "Publications", href: "/publications" },
-  { label: "Consulting",   href: "/consulting" },
-  { label: "Blog",         href: "/blog" },
-  { label: "Contact",      href: "/contact" },
+  { label: tr.nav.research,     href: `/${lang}/research`     },
+  { label: tr.nav.publications, href: `/${lang}/publications`  },
+  { label: tr.nav.consulting,   href: `/${lang}/consulting`    },
+  { label: tr.nav.blog,         href: `/${lang}/blog`          },
+  { label: tr.nav.contact,      href: `/${lang}/contact`       },
 ];
 
-const currentPath = Astro.url.pathname;
+const otherLang     = lang === 'en' ? 'cs' : 'en';
+const otherLangPath = alternatePath(pathname, lang);
 ---
 
 <nav class="nav">
-  <a class="nav-logo" href="/">
-    Martina Říhová <span>/ Research</span>
+  <a class="nav-logo" href={`/${lang}/`}>
+    Martina Říhová <span>/ {lang === 'en' ? 'Research' : 'Výzkum'}</span>
   </a>
 
-  <!-- Desktop links -->
   <ul class="nav-links">
     {links.map(link => (
       <li>
         <a
           href={link.href}
-          class:list={["nav-link", { active: currentPath.startsWith(link.href) }]}
+          class:list={['nav-link', { active: pathname.startsWith(link.href) }]}
         >
           {link.label}
         </a>
@@ -29,19 +40,16 @@ const currentPath = Astro.url.pathname;
     ))}
   </ul>
 
-  <!-- Language toggle -->
   <div class="nav-lang">
-    <a href="/en" class="lang-btn active">EN</a>
-    <a href="/cs" class="lang-btn">CS</a>
+    <a href={`/en/`}         class:list={['lang-btn', { active: lang === 'en' }]}>EN</a>
+    <a href={`/cs/`}         class:list={['lang-btn', { active: lang === 'cs' }]}>CS</a>
   </div>
 
-  <!-- Mobile hamburger -->
   <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
     <span></span><span></span><span></span>
   </button>
 </nav>
 
-<!-- Mobile drawer -->
 <div class="mobile-drawer" id="drawer" aria-hidden="true">
   <ul class="mobile-links">
     {links.map(link => (
@@ -49,8 +57,8 @@ const currentPath = Astro.url.pathname;
     ))}
   </ul>
   <div class="mobile-lang">
-    <a href="/en" class="lang-btn active">EN</a>
-    <a href="/cs" class="lang-btn">CS</a>
+    <a href={`/en/`} class:list={['lang-btn', { active: lang === 'en' }]}>EN</a>
+    <a href={`/cs/`} class:list={['lang-btn', { active: lang === 'cs' }]}>CS</a>
   </div>
 </div>
 
@@ -67,7 +75,6 @@ const currentPath = Astro.url.pathname;
     z-index: 100;
     gap: 1rem;
   }
-
   .nav-logo {
     font-family: var(--serif);
     font-size: 1.05rem;
@@ -78,20 +85,10 @@ const currentPath = Astro.url.pathname;
     white-space: nowrap;
     flex-shrink: 0;
   }
-  .nav-logo span {
-    font-weight: 300;
-    font-style: italic;
-    color: var(--ink-muted);
-  }
+  .nav-logo span { font-weight: 300; font-style: italic; color: var(--ink-muted); }
 
-  .nav-links {
-    display: none;
-    list-style: none;
-    gap: 1.75rem;
-  }
-  @media (min-width: 900px) {
-    .nav-links { display: flex; }
-  }
+  .nav-links { display: none; list-style: none; gap: 1.75rem; }
+  @media (min-width: 900px) { .nav-links { display: flex; } }
 
   .nav-link {
     font-size: 12px;
@@ -102,16 +99,10 @@ const currentPath = Astro.url.pathname;
     transition: color 0.2s;
     font-weight: 400;
   }
-  .nav-link:hover,
-  .nav-link.active { color: var(--ink); }
+  .nav-link:hover, .nav-link.active { color: var(--ink); }
 
-  .nav-lang {
-    display: none;
-    gap: 0.4rem;
-  }
-  @media (min-width: 900px) {
-    .nav-lang { display: flex; }
-  }
+  .nav-lang { display: none; gap: 0.4rem; }
+  @media (min-width: 900px) { .nav-lang { display: flex; } }
 
   .lang-btn {
     background: none;
@@ -127,14 +118,12 @@ const currentPath = Astro.url.pathname;
     text-decoration: none;
     font-weight: 400;
   }
-  .lang-btn.active,
-  .lang-btn:hover {
+  .lang-btn.active, .lang-btn:hover {
     background: var(--ink);
     color: var(--cream);
     border-color: var(--ink);
   }
 
-  /* Hamburger */
   .hamburger {
     display: flex;
     flex-direction: column;
@@ -157,36 +146,21 @@ const currentPath = Astro.url.pathname;
   .hamburger.open span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
   .hamburger.open span:nth-child(2) { opacity: 0; }
   .hamburger.open span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
+  @media (min-width: 900px) { .hamburger { display: none; } }
 
-  @media (min-width: 900px) {
-    .hamburger { display: none; }
-  }
-
-  /* Mobile drawer */
   .mobile-drawer {
     display: none;
     flex-direction: column;
-    gap: 0;
     background: var(--cream);
     border-bottom: var(--border);
-    overflow: hidden;
     max-height: 0;
+    overflow: hidden;
     transition: max-height 0.35s ease;
   }
-  .mobile-drawer.open {
-    display: flex;
-    max-height: 400px;
-  }
-  @media (min-width: 900px) {
-    .mobile-drawer { display: none !important; }
-  }
+  .mobile-drawer.open { display: flex; max-height: 400px; }
+  @media (min-width: 900px) { .mobile-drawer { display: none !important; } }
 
-  .mobile-links {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-  }
-
+  .mobile-links { list-style: none; display: flex; flex-direction: column; }
   .mobile-link {
     display: block;
     padding: 1rem var(--section-px);
@@ -198,30 +172,20 @@ const currentPath = Astro.url.pathname;
     border-bottom: var(--border);
     transition: color 0.2s, background 0.2s;
   }
-  .mobile-link:hover {
-    color: var(--ink);
-    background: var(--accent-light);
-  }
+  .mobile-link:hover { color: var(--ink); background: var(--accent-light); }
 
-  .mobile-lang {
-    display: flex;
-    gap: 0.5rem;
-    padding: 1rem var(--section-px);
-  }
+  .mobile-lang { display: flex; gap: 0.5rem; padding: 1rem var(--section-px); }
 </style>
 
 <script>
-  const btn = document.getElementById('hamburger');
+  const btn    = document.getElementById('hamburger');
   const drawer = document.getElementById('drawer');
-
   btn?.addEventListener('click', () => {
     const isOpen = drawer?.classList.toggle('open');
     btn.classList.toggle('open', isOpen);
     btn.setAttribute('aria-expanded', String(isOpen));
     drawer?.setAttribute('aria-hidden', String(!isOpen));
   });
-
-  // Close drawer on link click
   drawer?.querySelectorAll('a').forEach(a => {
     a.addEventListener('click', () => {
       drawer.classList.remove('open');
