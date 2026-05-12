@@ -24,7 +24,12 @@ const blogCs = defineCollection({
 });
 
 const publications = defineCollection({
-  loader: file('./src/content/publications/publications.json'),
+  loader: file('./src/content/publications/publications.json', {
+    parser: (text) => {
+      const { publications } = JSON.parse(text);
+      return publications;  // flat array, each item must have id
+    },
+  }),
   schema: z.object({
     id:       z.string(),
     title:    z.string(),

@@ -1,4 +1,5 @@
-[
+{
+  "publications": [
   {
     "id": "1",
     "title": "Electrospun nanofiber membranes as transdermal delivery vehicles for vitamin C derivatives",
@@ -32,3 +33,4 @@
     "url": ""
   }
 ]
+}

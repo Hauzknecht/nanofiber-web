@@ -65,14 +65,13 @@ collections:
         file: "src/content/publications/publications.json"
         fields:
           - label: "Publications"
-            name: "publications"  
+            name: "publications"
             widget: "list"
-            label_singular: "Publication"
-            summary: "{{fields.year}} — {{fields.title}}"
+            allow_add: true
             fields:
-              - { label: "ID (unique number)", name: "id", widget: "string", hint: "Just use the next number: 5, 6, 7..." }
-              - { label: "Title",   name: "title",   widget: "string" }
-              - { label: "Authors", name: "authors", widget: "string", hint: "e.g. Nováková J., Kolář M." }
-              - { label: "Year",    name: "year",    widget: "number", value_type: "int" }
-              - { label: "Abstract / Short description", name: "abstract", widget: "text", required: false }
-              - { label: "Link (DOI or URL)", name: "url", widget: "string", required: false, hint: "e.g. https://doi.org/10.1000/xyz" }
+              - { label: "ID",      name: "id",       widget: "string" }
+              - { label: "Title",   name: "title",     widget: "string" }
+              - { label: "Authors", name: "authors",   widget: "string" }
+              - { label: "Year",    name: "year",      widget: "number", value_type: "int" }
+              - { label: "Abstract", name: "abstract", widget: "text",   required: false }
+              - { label: "Link",    name: "url",       widget: "string", required: false }
