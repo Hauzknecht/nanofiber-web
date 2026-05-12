@@ -1,9 +1,10 @@
 import { defineCollection} from 'astro:content';
 import { z } from 'astro/zod'
+import { glob, file } from 'astro/loaders';
 
 const blogSchema = z.object({
   title:           z.string(),
-  date:            z.coerce.date(), // coerce handles both Date and "YYYY-MM-DD" strings
+  date:            z.coerce.date(),
   excerpt:         z.string(),
   tag:             z.string(),
   author:          z.string().default('Martina Říhová'),
@@ -12,18 +13,26 @@ const blogSchema = z.object({
   translationSlug: z.string().optional(),
 });
 
-const publicationSchema = z.object({
-  publications: z.array(z.object({
+const blogEn = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: './src/content/blog-en' }),
+  schema: blogSchema,
+});
+
+const blogCs = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: './src/content/blog-cs' }),
+  schema: blogSchema,
+});
+
+const publications = defineCollection({
+  loader: file('./src/content/publications/publications.json'),
+  schema: z.object({
+    id:       z.string(),
     title:    z.string(),
     authors:  z.string(),
     year:     z.number(),
     abstract: z.string().optional(),
     url:      z.string().optional(),
-  })),
+  }),
 });
 
-export const collections = {
-  'blog-en':      defineCollection({ type: 'content', schema: blogSchema }),
-  'blog-cs':      defineCollection({ type: 'content', schema: blogSchema }),
-  'publications': defineCollection({ type: 'data',    schema: publicationSchema }),
-};
+export const collections = { 'blog-en': blogEn, 'blog-cs': blogCs, publications };

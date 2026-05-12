@@ -6,8 +6,8 @@ import { useT } from '../../i18n/translations';
 const lang = 'en' as const;
 const tr = useT(lang);
 
-const [pubFile] = await getCollection('publications');
-const publications = (pubFile?.data?.publications ?? []).sort((a, b) => b.year - a.year);
+const pubEntries = await getCollection('publications');
+const publications = pubEntries.map(e => e.data).sort((a, b) => b.year - a.year);
 
 // Group by year
 const byYear = publications.reduce((acc, pub) => {
