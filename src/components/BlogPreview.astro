@@ -22,7 +22,7 @@ const posts      = allPosts
 
   <div class="blog-grid">
     {posts.map(post => (
-      <a class="blog-card" href={`/${lang}/blog/${post.slug}`}>
+      <a class="blog-card" href={`/${lang}/blog/${post.id}`}>
         <div class="blog-date">{formatDateShort(post.data.date, lang)}</div>
         <div class="blog-title">{post.data.title}</div>
         <div class="blog-excerpt">{post.data.excerpt}</div>

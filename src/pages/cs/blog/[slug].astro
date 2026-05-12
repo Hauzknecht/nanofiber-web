@@ -6,9 +6,10 @@ import { useT, formatDate } from '../../../i18n/translations';
 const lang = 'cs' as const;
 const tr = useT(lang);
 
+// cs/blog/[slug].astro
 export async function getStaticPaths() {
   const posts = await getCollection('blog-cs');
-  return posts.map(post => ({ params: { slug: post.slug }, props: { post } }));
+  return posts.map(post => ({ params: { slug: post.id }, props: { post } }));
 }
 
 const { post } = Astro.props;
