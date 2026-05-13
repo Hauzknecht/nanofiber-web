@@ -13,7 +13,7 @@ draft: true
 **Direct incorporation into the spinning solution**
 The simplest approach. The additive is directly introduced into the spinning solution, becoming an integral part of the fibers, either embedded within their structure or located on their surface. The preparation is straightforward and does not require complex processing steps.
 
-This method is particularly suitable for **hydrophilic fibers**, where the material readily responds upon contact with water and rapidly releases the active compound exactly where it is needed. In the case of **hydrophobic fibers**, the situation is more complex. Since these fibers do not naturally dissolve or swell in water, additives encapsulated within the fiber matrix may exhibit slow or insufficient release.
+This method is particularly suitable for hydrophilic fibers, where the material readily responds upon contact with water and rapidly releases the active compound exactly where it is needed. In the case of hydrophobic fibers, the situation is more complex. Since these fibers do not naturally dissolve or swell in water, additives encapsulated within the fiber matrix may exhibit slow or insufficient release.
 
 **Dip coating**
 Another relatively simple and cost-effective approach is the surface modification of pre-formed fibers by immersion in a solution containing the active compound. The advantage of this method is that the fiber structure remains intact, while the additive is applied as a final surface layer. This technique is particularly suitable for fibers that are stable in the coating medium and do not dissolve upon contact with the solution.
