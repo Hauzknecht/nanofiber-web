@@ -7,7 +7,7 @@ excerpt: The skincare mask market reaches 1.5 billion dollars. However, their
 tag: Industry
 author: Martina Rihova
 translationSlug: fibers-vs-sheet-masks
-draft: true
+draft: false
 ---
 
 
