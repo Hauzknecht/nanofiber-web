@@ -5,6 +5,6 @@ excerpt: Additives exhibiting biological activity on the skin for targeted appli
 tag: Research
 author: Martina Říhová
 translationSlug: additive-aplication
-draft: true
+draft: false
 ---
 yyyyy
