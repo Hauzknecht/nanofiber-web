@@ -8,7 +8,7 @@ excerpt: A practical guide to methods of incorporating additives into fibers for
 tag: Technical
 author: Martina Říhová
 translationSlug: methods-additives
-draft: true
+draft: false
 ---
 **Direct incorporation into the spinning solution**
 The simplest approach. The additive is directly introduced into the spinning solution, becoming an integral part of the fibers, either embedded within their structure or located on their surface. The preparation is straightforward and does not require complex processing steps.
