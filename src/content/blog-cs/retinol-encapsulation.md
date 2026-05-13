@@ -1,10 +1,10 @@
 ---
-title: Aditiva, která dobře známe z naší praxe
+title: Bioaktivní aditiva pro pokožku
 date: 2024-11-20
-excerpt: xxxx
-tag: Výzkum
+excerpt: Aditiva vykazující biologickou aktivitu na pokožce pro cílené aplikace.
+tag: Research
 author: Martina Říhová
-translationSlug: retinol-encapsulation
+translationSlug: addtive-aplication
 draft: true
 ---
 *yyyyy*
