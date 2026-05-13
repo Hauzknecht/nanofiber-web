@@ -6,7 +6,7 @@ excerpt: Trh s pleťovými maskami dosahuje 1,5 miliardy dolarů. Jejich účinn
   unikátní
 tag: Průmysl
 author: Martina Říhová
-translationSlug: nanofibers-vs-sheet-masks
+translationSlug: fibers-vs-sheet-masks
 draft: true
 ---
 
