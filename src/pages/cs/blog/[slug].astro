@@ -15,7 +15,15 @@ export async function getStaticPaths() {
 const { post } = Astro.props;
 const { Content } = await render(post);
 
-const enSlug = post.data.translationSlug ?? post.id;
+const enPosts = await getCollection('blog-en');
+
+const translatedPost = enPosts.find(
+  (p) => p.data.translationSlug === post.data.translationSlug
+);
+
+const enUrl = translatedPost
+  ? `/en/blog/${translatedPost.id}/`
+  : '/en/blog/';
 ---
 <BaseLayout
   lang={lang}
@@ -25,7 +33,7 @@ const enSlug = post.data.translationSlug ?? post.id;
   <article class="post">
     <div class="post-back">
       <a href="/cs/blog" class="btn-ghost" style="font-size:11px;">{tr.blog.back}</a>
-      <a href={`/en/blog/${enSlug}`} class="lang-switch">Read in English →</a>
+      <a href={enUrl} class="lang-switch">Read in English →</a>
     </div>
     <header class="post-header">
       <div class="post-header-meta">

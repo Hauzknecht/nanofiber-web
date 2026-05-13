@@ -15,8 +15,15 @@ export async function getStaticPaths() {
 const { post } = Astro.props;
 const { Content } = await render(post);
 
-// Find CS translation link if available
-const csSlug = post.data.translationSlug ?? post.id;
+const csPosts = await getCollection('blog-cs');
+
+const translatedPost = csPosts.find(
+  (p) => p.data.translationSlug === post.data.translationSlug
+);
+
+const csUrl = translatedPost
+  ? `/cs/blog/${translatedPost.id}/`
+  : '/cs/blog/';
 ---
 <BaseLayout
   lang={lang}
@@ -26,7 +33,7 @@ const csSlug = post.data.translationSlug ?? post.id;
   <article class="post">
     <div class="post-back">
       <a href="/en/blog" class="btn-ghost" style="font-size:11px;">{tr.blog.back}</a>
-      <a href={`/cs/blog/${csSlug}`} class="lang-switch">Číst česky →</a>
+      <a href={csUrl} class="lang-switch">Číst česky →</a>
     </div>
     <header class="post-header">
       <div class="post-header-meta">
