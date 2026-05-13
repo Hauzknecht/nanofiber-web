@@ -7,7 +7,7 @@ excerpt: Praktický průvodce metodami přidávání aditiv do vláken, které s
 tag: Technické
 author: Martina Říhová
 translationSlug: methods-additives
-draft: true
+draft: false
 ---
 
 
