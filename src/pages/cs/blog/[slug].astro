@@ -15,7 +15,7 @@ export async function getStaticPaths() {
 const { post } = Astro.props;
 const { Content } = await render(post);
 
-const enSlug = post.data.translationSlug ?? post.slug;
+const enSlug = post.data.translationSlug ?? post.id;
 ---
 <BaseLayout
   lang={lang}
