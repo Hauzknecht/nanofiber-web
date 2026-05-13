@@ -1,35 +1,35 @@
 ---
+import { getCollection } from 'astro:content';
 import type { Lang } from '../i18n/translations';
 import { useT } from '../i18n/translations';
 
 interface Props {
   lang: Lang;
   stats?: { num: string; label: string }[];
-  latestPublication?: { title: string; journal: string; year: string; tag: string };
 }
 
 const {
   lang,
   stats = [
-    { num: '12+', label: '' },
-    { num: '5',   label: '' },
-    { num: '3',   label: '' },
+    { num: '5+', label: '' },
+    { num: '8', label: '' },
+    { num: '2', label: '' },
   ],
-  latestPublication = {
-    title:   'Electrospun nanofiber membranes as transdermal delivery vehicles for vitamin C derivatives',
-    journal: 'Journal of Cosmetic Science',
-    year:    '2024',
-    tag:     'Electrospinning',
-  },
 } = Astro.props;
 
 const tr = useT(lang);
 
 // Merge translated labels into stats
 const mergedStats = stats.map((s, i) => ({
-  num:   s.num,
+  num: s.num,
   label: tr.hero.stat_labels[i] ?? s.label,
 }));
+
+// Get latest publication
+const publications = await getCollection('publications');
+
+const latestPublication = publications
+  .sort((a, b) => b.data.year - a.data.year)[0];
 ---
 
 <section class="hero">
@@ -37,53 +37,107 @@ const mergedStats = stats.map((s, i) => ({
     <p class="eyebrow">{tr.hero.eyebrow}</p>
     <h1 class="hero-title" set:html={tr.hero.title} />
     <p class="hero-desc">{tr.hero.description}</p>
+
     <div class="hero-ctas">
-      <a class="btn-primary" href={`/${lang}/research`}>{tr.hero.cta_primary}</a>
-      <a class="btn-ghost"   href={`/${lang}/contact`}>{tr.hero.cta_ghost}</a>
+      <a class="btn-primary" href={`/${lang}/research`}>
+        {tr.hero.cta_primary}
+      </a>
+      <a class="btn-ghost" href={`/${lang}/contact`}>
+        {tr.hero.cta_ghost}
+      </a>
     </div>
   </div>
 
   <div class="hero-right">
-    <svg class="fiber-art" viewBox="0 0 600 700" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
-      <path d="M-20 200 Q150 100 300 250 T620 200"   stroke="#3B4A3E" stroke-width="1.5" fill="none"/>
-      <path d="M-20 280 Q200 150 350 310 T640 260"   stroke="#3B4A3E" stroke-width="1"   fill="none"/>
-      <path d="M-20 350 Q180 220 320 380 T630 320"   stroke="#3B4A3E" stroke-width="0.8" fill="none"/>
-      <path d="M-20 420 Q170 310 330 440 T650 380"   stroke="#3B4A3E" stroke-width="1.2" fill="none"/>
-      <path d="M50  -20 Q100 180  80 350 T120  720"  stroke="#3B4A3E" stroke-width="1"   fill="none"/>
-      <path d="M150 -20 Q200 200 175 380 T220  720"  stroke="#3B4A3E" stroke-width="0.8" fill="none"/>
-      <path d="M280 -20 Q320 180 290 400 T340  720"  stroke="#3B4A3E" stroke-width="1.5" fill="none"/>
-      <path d="M400 -20 Q430 220 410 420 T460  720"  stroke="#3B4A3E" stroke-width="0.8" fill="none"/>
-      <path d="M500 -20 Q540 250 515 460 T555  720"  stroke="#3B4A3E" stroke-width="1"   fill="none"/>
-      <circle cx="285" cy="248" r="3"   fill="#3B4A3E" opacity="0.4"/>
-      <circle cx="320" cy="310" r="2"   fill="#3B4A3E" opacity="0.3"/>
+    <svg
+      class="fiber-art"
+      viewBox="0 0 600 700"
+      xmlns="http://www.w3.org/2000/svg"
+      preserveAspectRatio="xMidYMid slice"
+      aria-hidden="true"
+    >
+      <path d="M-20 200 Q150 100 300 250 T620 200" stroke="#3B4A3E" stroke-width="1.5" fill="none"/>
+      <path d="M-20 280 Q200 150 350 310 T640 260" stroke="#3B4A3E" stroke-width="1" fill="none"/>
+      <path d="M-20 350 Q180 220 320 380 T630 320" stroke="#3B4A3E" stroke-width="0.8" fill="none"/>
+      <path d="M-20 420 Q170 310 330 440 T650 380" stroke="#3B4A3E" stroke-width="1.2" fill="none"/>
+      <path d="M50 -20 Q100 180 80 350 T120 720" stroke="#3B4A3E" stroke-width="1" fill="none"/>
+      <path d="M150 -20 Q200 200 175 380 T220 720" stroke="#3B4A3E" stroke-width="0.8" fill="none"/>
+      <path d="M280 -20 Q320 180 290 400 T340 720" stroke="#3B4A3E" stroke-width="1.5" fill="none"/>
+      <path d="M400 -20 Q430 220 410 420 T460 720" stroke="#3B4A3E" stroke-width="0.8" fill="none"/>
+      <path d="M500 -20 Q540 250 515 460 T555 720" stroke="#3B4A3E" stroke-width="1" fill="none"/>
+      <circle cx="285" cy="248" r="3" fill="#3B4A3E" opacity="0.4"/>
+      <circle cx="320" cy="310" r="2" fill="#3B4A3E" opacity="0.3"/>
       <circle cx="175" cy="378" r="2.5" fill="#3B4A3E" opacity="0.35"/>
-      <circle cx="410" cy="418" r="2"   fill="#3B4A3E" opacity="0.3"/>
+      <circle cx="410" cy="418" r="2" fill="#3B4A3E" opacity="0.3"/>
     </svg>
 
     <div class="hero-right-content">
       <div class="stat-row">
-        {mergedStats.map(s => (
+        {mergedStats.map((s) => (
           <div class="stat-item">
             <span class="stat-num">{s.num}</span>
             <span class="stat-label">{s.label}</span>
           </div>
         ))}
       </div>
-      <div class="pub-card">
-        <div class="pub-card-label">{tr.hero.pub_label}</div>
-        <div class="pub-card-title">{latestPublication.title}</div>
-        <div class="pub-card-meta">
-          <span class="tag">{latestPublication.tag}</span>
-          <span class="pub-card-journal">{latestPublication.year} · {latestPublication.journal}</span>
-        </div>
-      </div>
+
+      {latestPublication && (
+        latestPublication.data.url ? (
+          <a
+            href={latestPublication.data.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="pub-card pub-card-link"
+          >
+            <div class="pub-card-label">
+              {tr.hero.pub_label}
+            </div>
+
+            <div class="pub-card-title">
+              {latestPublication.data.title}
+            </div>
+
+            <div class="pub-card-meta">
+              <span class="tag">
+                {latestPublication.data.year}
+              </span>
+            </div>
+          </a>
+        ) : (
+          <div class="pub-card">
+            <div class="pub-card-label">
+              {tr.hero.pub_label}
+            </div>
+
+            <div class="pub-card-title">
+              {latestPublication.data.title}
+            </div>
+
+            <div class="pub-card-meta">
+              <span class="tag">
+                {latestPublication.data.year}
+              </span>
+            </div>
+          </div>
+        )
+      )}
     </div>
   </div>
 </section>
 
 <style>
-  .hero { display: grid; grid-template-columns: 1fr; border-bottom: var(--border); }
-  @media (min-width: 900px) { .hero { grid-template-columns: 1fr 1fr; min-height: 88vh; } }
+  .hero {
+    display: grid;
+    grid-template-columns: 1fr;
+    border-bottom: var(--border);
+  }
+
+  @media (min-width: 900px) {
+    .hero {
+      grid-template-columns: 1fr 1fr;
+      min-height: 88vh;
+    }
+  }
 
   .hero-left {
     padding: var(--sp-8) var(--section-px);
@@ -93,10 +147,21 @@ const mergedStats = stats.map((s, i) => ({
     gap: var(--sp-3);
     border-bottom: var(--border);
   }
+
   @media (min-width: 900px) {
-    .hero-left { border-bottom: none; border-right: var(--border); gap: 0; }
-    .hero-left .eyebrow   { margin-bottom: var(--sp-4); }
-    .hero-left .hero-desc { margin-bottom: var(--sp-6); }
+    .hero-left {
+      border-bottom: none;
+      border-right: var(--border);
+      gap: 0;
+    }
+
+    .hero-left .eyebrow {
+      margin-bottom: var(--sp-4);
+    }
+
+    .hero-left .hero-desc {
+      margin-bottom: var(--sp-6);
+    }
   }
 
   .hero-title {
@@ -107,10 +172,26 @@ const mergedStats = stats.map((s, i) => ({
     letter-spacing: -0.01em;
     color: var(--ink);
   }
-  .hero-title :global(em) { font-style: italic; color: var(--accent); }
 
-  .hero-desc { font-size: 15px; color: var(--ink-muted); max-width: 400px; line-height: 1.8; font-weight: 300; }
-  .hero-ctas { display: flex; flex-wrap: wrap; gap: 1.25rem; align-items: center; }
+  .hero-title :global(em) {
+    font-style: italic;
+    color: var(--accent);
+  }
+
+  .hero-desc {
+    font-size: 15px;
+    color: var(--ink-muted);
+    max-width: 400px;
+    line-height: 1.8;
+    font-weight: 300;
+  }
+
+  .hero-ctas {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.25rem;
+    align-items: center;
+  }
 
   .hero-right {
     position: relative;
@@ -122,22 +203,96 @@ const mergedStats = stats.map((s, i) => ({
     background: var(--accent-light);
     min-height: 340px;
   }
-  @media (min-width: 900px) { .hero-right { min-height: unset; } }
+
+  @media (min-width: 900px) {
+    .hero-right {
+      min-height: unset;
+    }
+  }
 
   .fiber-art {
-    position: absolute; inset: 0; width: 100%; height: 100%;
-    opacity: 0.18; pointer-events: none;
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.18;
+    pointer-events: none;
   }
-  .hero-right-content { position: relative; z-index: 2; }
 
-  .stat-row { display: flex; gap: var(--sp-4); margin-bottom: var(--sp-4); border-top: var(--border); padding-top: var(--sp-3); }
-  .stat-item { flex: 1; }
-  .stat-num { font-family: var(--serif); font-size: clamp(2rem, 4vw, 2.8rem); font-weight: 300; color: var(--ink); line-height: 1; display: block; }
-  .stat-label { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-muted); margin-top: 0.4rem; display: block; }
+  .hero-right-content {
+    position: relative;
+    z-index: 2;
+  }
 
-  .pub-card { background: white; border: var(--border); padding: 1.25rem; border-radius: 3px; }
-  .pub-card-label { font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-muted); margin-bottom: 0.6rem; }
-  .pub-card-title { font-family: var(--serif); font-size: 1.1rem; font-weight: 400; color: var(--ink); line-height: 1.3; margin-bottom: 0.75rem; }
-  .pub-card-meta { display: flex; flex-wrap: wrap; align-items: center; gap: 0.75rem; }
-  .pub-card-journal { font-size: 12px; color: var(--ink-muted); }
+  .stat-row {
+    display: flex;
+    gap: var(--sp-4);
+    margin-bottom: var(--sp-4);
+    border-top: var(--border);
+    padding-top: var(--sp-3);
+  }
+
+  .stat-item {
+    flex: 1;
+  }
+
+  .stat-num {
+    font-family: var(--serif);
+    font-size: clamp(2rem, 4vw, 2.8rem);
+    font-weight: 300;
+    color: var(--ink);
+    line-height: 1;
+    display: block;
+  }
+
+  .stat-label {
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+    margin-top: 0.4rem;
+    display: block;
+  }
+
+  .pub-card {
+    background: white;
+    border: var(--border);
+    padding: 1.25rem;
+    border-radius: 3px;
+  }
+
+  .pub-card-link {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.15s ease;
+  }
+
+  .pub-card-link:hover {
+    transform: translateY(-2px);
+  }
+
+  .pub-card-label {
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+    margin-bottom: 0.6rem;
+  }
+
+  .pub-card-title {
+    font-family: var(--serif);
+    font-size: 1.1rem;
+    font-weight: 400;
+    color: var(--ink);
+    line-height: 1.3;
+    margin-bottom: 0.75rem;
+  }
+
+  .pub-card-meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.75rem;
+  }
 </style>

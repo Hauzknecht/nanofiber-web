@@ -12,14 +12,14 @@ export const t = {
     hero: {
       eyebrow:     'PhD Researcher · Nanofibers in Cosmetics',
       title:       'Engineering beauty at the <em>nanoscale.</em>',
-      description: 'Research at the intersection of electrospinning, nanotechnology, and cosmetic science — creating next-generation delivery systems for skincare actives.',
+      description: 'Research at the intersection of centrifugal and electrospinning, nanotechnology, and cosmetic science — creating next-generation delivery systems for skincare actives.',
       cta_primary: 'Explore research',
       cta_ghost:   'Get in touch',
       stat_labels: ['Publications', 'Years research', 'Industry projects'],
       pub_label:   'Latest publication',
     },
     expertise: [
-      { num: '01', title: 'Electrospinning',    desc: 'Nanofiber fabrication for cosmetic and pharmaceutical delivery applications.' },
+      { num: '01', title: 'Centrifugal and electro spinning',    desc: 'Nanofiber fabrication for cosmetic and pharmaceutical delivery applications.' },
       { num: '02', title: 'Active Delivery',    desc: 'Encapsulation and controlled release of skincare actives at the cellular level.' },
       { num: '03', title: 'Biomaterial Design', desc: 'Biocompatible polymer systems for skin-contact applications.' },
       { num: '04', title: 'Consulting',         desc: 'R&D advisory for cosmetic companies exploring nanotechnology.' },
@@ -153,14 +153,14 @@ export const t = {
     hero: {
       eyebrow:     'PhD výzkumnice · Nanovlákna v kosmetice',
       title:       'Věda krásy na <em>nanoúrovni.</em>',
-      description: 'Výzkum na průsečíku elektrostatického zvlákňování, nanotechnologií a kosmetické vědy — vytváření systémů nové generace pro doručování aktivních látek do pleti.',
+      description: 'Výzkum na průsečíku odstředivého a elektrostatického zvlákňování, nanotechnologií a kosmetické vědy — vytváření systémů nové generace pro doručování aktivních látek do pleti.',
       cta_primary: 'Prozkoumat výzkum',
       cta_ghost:   'Kontaktovat',
       stat_labels: ['Publikace', 'Roky výzkumu', 'Průmyslové projekty'],
       pub_label:   'Nejnovější publikace',
     },
     expertise: [
-      { num: '01', title: 'Elektrostatické zvlákňování', desc: 'Výroba nanovláken pro kosmetické a farmaceutické aplikace.' },
+      { num: '01', title: 'Odstředivé a elektrostatické zvlákňování', desc: 'Výroba nanovláken pro kosmetické a farmaceutické aplikace.' },
       { num: '02', title: 'Doručování látek',            desc: 'Enkapsulace a řízené uvolňování aktivních složek kosmetiky.' },
       { num: '03', title: 'Návrh biomaterálů',           desc: 'Biokompatibilní polymerní systémy pro aplikace v kontaktu s kůží.' },
       { num: '04', title: 'Průmyslová spolupráce',       desc: 'Vědecké poradenství pro kosmetické firmy zaměřené na nanotechnologie.' },
