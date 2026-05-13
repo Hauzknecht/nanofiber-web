@@ -1,23 +1,26 @@
 ---
-title: "Electrospinning parameters for cosmetic-grade fibers"
+title: Methods for incorporating additives into fibers used in the development
+  of functional materials
 date: 2025-01-15
-excerpt: "A practical guide to voltage, flow rate, and collector distance when working with skin-compatible polymers."
+excerpt: A practical guide to methods of incorporating additives into fibers for
+  subsequent controlled release onto the skin, ensuring targeted and effective
+  action.
 tag: Technical
 author: Martina Říhová
+translationSlug: methods-additives
+draft: true
 ---
+**Direct incorporation into the spinning solution**
+The simplest approach. The additive is directly introduced into the spinning solution, becoming an integral part of the fibers, either embedded within their structure or located on their surface. The preparation is straightforward and does not require complex processing steps.
 
-Getting electrospinning parameters right for cosmetic applications is more nuanced than standard biomedical work. Skin-compatible polymers — PVA, PVP, zein, silk fibroin — each behave differently under the electric field.
+This method is particularly suitable for **hydrophilic fibers**, where the material readily responds upon contact with water and rapidly releases the active compound exactly where it is needed. In the case of **hydrophobic fibers**, the situation is more complex. Since these fibers do not naturally dissolve or swell in water, additives encapsulated within the fiber matrix may exhibit slow or insufficient release.
 
-## Voltage
+**Dip coating**
+Another relatively simple and cost-effective approach is the surface modification of pre-formed fibers by immersion in a solution containing the active compound. The advantage of this method is that the fiber structure remains intact, while the additive is applied as a final surface layer. This technique is particularly suitable for fibers that are stable in the coating medium and do not dissolve upon contact with the solution.
 
-For most cosmetic-grade polymers, a working voltage between **12–20 kV** produces consistent fiber morphology. Beyond 22 kV you risk bead formation, particularly with lower-viscosity solutions.
+Because the active compound is located directly on the fiber surface, rapid release occurs immediately upon contact with the target environment. However, drawbacks may include non-uniform coating and limited control over the amount of deposited additive.
 
-## Flow rate
+**Vapor Phase Infiltration**
+A method that enables highly uniform distribution of inorganic nanocrystals both on and within the fiber structure. Using a gaseous precursor, active species diffuse into the fibers without requiring dissolution or causing mechanical damage, allowing precise and homogeneous deposition even in complex fibrous architectures.
 
-Keep flow rate conservative: **0.3–0.8 mL/h** for aqueous systems. Higher rates lead to incomplete solvent evaporation, which is unacceptable for a product that contacts skin.
-
-## Collector distance
-
-A tip-to-collector distance of **15–20 cm** works well for most lab setups. Reduce to 12 cm if you're spinning high-boiling-point solvents and need more drying time.
-
-*(Continue your article here...)*
+Inorganic nanocrystals introduced via this technique can provide strong antibacterial properties. For example, zinc oxide nanoparticles are highly effective in suppressing the growth of harmful microorganisms, making this approach particularly promising for dermatological applications such as acne treatment or skincare for problematic skin.
