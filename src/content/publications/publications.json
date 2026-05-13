@@ -18,19 +18,19 @@
     },
     {
       "id": "3",
-      "title": "Retinol stabilisation in electrospun nanofiber matrices: a comparative study",
-      "authors": "Nováková J., Ruml T., Kolář M.",
-      "year": 2023,
-      "abstract": "Comparison of retinol stability in PVP, PVA, and zein nanofiber matrices under accelerated aging conditions.",
-      "url": ""
+      "title": "Biopolymerní vlákna připravená odstředivým zvlákňováním s nanočásticemi ZnO pro léčbu Acne vulgaris",
+      "authors": "Martina Rihova,  Kristyna Cihalova , Miloslav Pouzar,  Michaela Kuthanova,  Ludek Jelinek , Ludek Hromadko,  Veronika Cicmancova , Zbynek Heger, Jan M. Macak",
+      "year": 2024,
+      "abstract": "Studie se zaměřila na přípravu přírodních vláken z arabské gumy a pullulanu obsahujících nanočástice oxidu zinečnatého (ZnO NPs, průměr ~40 nm) pro lokální léčbu Acne vulgaris.\nMetodou odstředivého zvlákňování bylo dosaženo homogenní distribuce ZnO nanočástic ve struktuře vláken v koncentračním rozmezí 0,03-4,5 hm. %. Antibakteriální aktivita testovaná difuzní diskovou metodou proti bakteriím způsobujícím Acne vulgaris (Cutibacterium acnes a Staphylococcus epidermidis) byla pozorována již od koncentrace 1,5 hm. % ZnO nanočástic ve vláknech.\n",
+      "url": "https://doi.org/10.1016/j.apmt.2024.102151"
     },
     {
       "id": "4",
-      "title": "Electrospinning of Natural Polymers for Cosmetic Delivery Systems",
-      "authors": "Nováková J.",
-      "year": 2024,
-      "abstract": "Invited conference talk presenting results on natural polymer nanofiber fabrication for cosmetic active delivery.",
-      "url": ""
+      "title": "Odstředivě zvlákněná a ZnO-infiltrovaná PVA vlákna s antibakteriální aktivitou pro léčbu Acne vulgaris",
+      "authors": "Martina Rihova,  Susan Azpeitia,  Kristyna Cihalova, Jan Michalicka,  Pavan Kumar Chennam,  Eva Kolibalova, Roman Svoboda, Zbynek Heger, Mato Knez, Jan M. Macak",
+      "year": 2025,
+      "abstract": "Studie se zaměřila na přípravu biodegradabilních vláken z poly(vinyl alkoholu) modifikovaných ZnO metodou Vapour Phase Infiltration (VPI) pro lokální léčbu Acne vulgaris. Vapor Phase Infiltration je metoda, která umožňuje infiltraci anorganických složek přímo do polymerní matrice prostřednictvím difúze plynných prekurzorů a jejich následné reakce s funkčními skupinami polymeru.\nTransmisní elektronová analýza potvrdila přítomnost ZnO nanokrystalů s hexagonální wurtzitovou strukturou rovnoměrně distribuovaných ve struktuře vláken.\nVýsledky ukazují, že PVA/ZnO vlákna připravená kombinací odstředivého zvlákňování a VPI představují perspektivní materiál pro přípravu antibakteriálních systémů pro dermatologické aplikace. VPI přitom umožnila řízenou infiltraci prekurzorů do polymerní matrice a jejich následnou přeměnu na anorganické nanokrystaly přímo uvnitř struktury vlákna, čímž zajistila homogenní distribuci ZnO bez nutnosti jeho přímého přídavku do zvlákňovacího roztoku.\n",
+      "url": "https://doi.org/10.1016/j.jconrel.2025.113777"
     }
   ]
 }
