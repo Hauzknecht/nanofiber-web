@@ -7,4 +7,4 @@ author: Martina Říhová
 translationSlug: additive-aplication
 draft: false
 ---
-*yyyyy*
+yyyyy
