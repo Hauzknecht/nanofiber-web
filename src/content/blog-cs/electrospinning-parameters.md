@@ -4,7 +4,7 @@ title: Metody inkorporace aditiv do vláken, které využíváme při vývoji fu
 date: 2025-01-15
 excerpt: Praktický průvodce metodami přidávání aditiv do vláken, které se
   následně uvolňují na kůži a zajišťují jejich cílené a efektivní působení.
-tag: Technické
+tag: Technical
 author: Martina Říhová
 translationSlug: methods-additives
 draft: false
