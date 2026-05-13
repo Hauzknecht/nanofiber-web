@@ -5,6 +5,6 @@ excerpt: Aditiva vykazující biologickou aktivitu na pokožce pro cílené apli
 tag: Research
 author: Martina Říhová
 translationSlug: additive-aplication
-draft: true
+draft: false
 ---
 *yyyyy*
