@@ -10,7 +10,7 @@ export const t = {
       contact:      'Contact',
     },
     hero: {
-      eyebrow:     'PhD Researcher · Nanofibers in Cosmetics',
+      eyebrow:     'PhD Researchers · Nanofibers in Cosmetics',
       title:       'Engineering beauty at the <em>nanoscale.</em>',
       description: 'Research at the intersection of centrifugal and electrospinning, nanotechnology, and cosmetic science — creating next-generation delivery systems for skincare actives.',
       cta_primary: 'Explore research',
@@ -28,12 +28,12 @@ export const t = {
       label:             'About',
       headline:          'Science that<br/>touches <em>skin.</em>',
       body: [
-        'I am a PhD researcher specialising in the application of <strong>electrospun nanofibers</strong> to cosmetic formulation science. My work bridges fundamental polymer chemistry with real-world cosmetic product innovation.',
-        'Alongside my academic research, I work with cosmetic brands and ingredient companies as a <strong>scientific consultant</strong>, helping translate laboratory findings into viable product concepts.',
+        'We are specialists in <strong>fiber</strong> application in cosmetic science. Our work bridges fundamental polymer chemistry with real-world innovation in cosmetic products. Alongside academic research, we offer <strong>collaboration</strong> with cosmetic brands and raw material suppliers as scientific consultants.',
+        'Our goal is to help translate laboratory findings into viable products and concepts that truly work in practice. We have extensive experience not only in fiber preparation, but also in their application and the incorporation of additives into final formulations. We thrive on challenges that sit at the intersection of science and industry and that is where we find the most exciting solutions.',
       ],
-      institution_label: 'Institution',
-      location_label:    'Location',
-      field_label:       'Field',
+      institution_label: 'Central European Institute of Technology, Brno University of Technology',
+      location_label:    'Czech Republic',
+      field_label:       'Nanotechnology · Cosmetics',
     },
     blog: {
       section_title: 'From the research log',
@@ -59,26 +59,26 @@ export const t = {
       no_doi:        'No DOI',
     },
     consulting: {
-      page_title: 'Consulting — Martina Říhová',
+      page_title: 'Consulting',
       page_desc:  'Scientific consulting and R&D advisory services for cosmetic companies exploring nanofiber technology.',
       eyebrow:    'Work with me',
       headline:   'Turning science into <em>products.</em>',
-      intro:      'I work with cosmetic brands, ingredient companies, and startups as a scientific consultant — helping teams navigate the technical complexity of nanofiber formulation from early concept through to prototype.',
+      intro:      'We offer collaboration with cosmetic brands, raw material suppliers and startups as scientific consultants. We help teams navigate the technical complexity of nanofiber-based formulations from initial concept to prototype.',
       services: [
         {
           num:   '01',
-          title: 'R&D Advisory',
-          desc:  'Expert guidance on electrospinning processes, polymer selection, and formulation design. Ideal for teams building new delivery systems or optimising existing ones.',
+          title: 'R&D Consulting',
+          desc:  'Not sure where to start? Whether you are looking for the right polymer, deciding on a spinning method, or troubleshooting a formulation that is not performing as expected, we are here to help. Our expertise is rooted in centrifugal spinning, but the principles we have built over the years translate well into electrospinning too. We offer expert consultations and tailored guidance for teams developing new active delivery systems or optimising existing ones.',
         },
         {
           num:   '02',
-          title: 'Technical Reports',
-          desc:  'Comprehensive literature reviews, feasibility assessments, and white papers on nanofiber cosmetics topics. Suitable for internal strategy or regulatory submission support.',
+          title: 'Collaboration and Joint Projects',
+          desc:  'Do you have a research idea but lack fiber expertise? Or are you looking for an academic partner for an industry project? We are open to joint projects, grant applications and long-term research collaboration. The best things happen when the right people come together.',
         },
         {
           num:   '03',
           title: 'Workshop & Training',
-          desc:  'Hands-on or remote sessions for R&D teams. Topics range from electrospinning fundamentals to advanced characterisation techniques for cosmetic-grade fibers.',
+          desc:  'In-person or remote seminars for R&D teams. Topics range from the fundamentals of electrospinning to advanced characterisation techniques for cosmetic-grade fibers.',
         },
         {
           num:   '04',
@@ -98,7 +98,7 @@ export const t = {
       cta_button:  'Send a message',
     },
     contact: {
-      page_title:  'Contact — Martina Říhová',
+      page_title:  'Contact',
       page_desc:   'Get in touch for collaboration, consulting inquiries, or press.',
       eyebrow:     'Get in touch',
       headline:    'Let\'s <em>collaborate.</em>',
@@ -135,9 +135,9 @@ export const t = {
       ],
     },
     meta: {
-      site_title: 'Martina Říhová — Nanofiber Research',
+      site_title: 'Nanofiber Research',
       site_desc:  'PhD researcher specialising in electrospun nanofibers for cosmetic applications.',
-      blog_title: 'Blog — Martina Říhová',
+      blog_title: 'Blog',
       blog_desc:  'Research insights, technical guides, and industry perspectives on nanofibers in cosmetics.',
     },
   },
@@ -151,7 +151,7 @@ export const t = {
       contact:      'Kontakt',
     },
     hero: {
-      eyebrow:     'PhD výzkumnice · Nanovlákna v kosmetice',
+      eyebrow:     'PhD výzkumníci · Nanovlákna v kosmetice',
       title:       'Věda krásy na <em>nanoúrovni.</em>',
       description: 'Výzkum na průsečíku odstředivého a elektrostatického zvlákňování, nanotechnologií a kosmetické vědy — vytváření systémů nové generace pro doručování aktivních látek do pleti.',
       cta_primary: 'Prozkoumat výzkum',
@@ -166,15 +166,15 @@ export const t = {
       { num: '04', title: 'Průmyslová spolupráce',       desc: 'Vědecké poradenství pro kosmetické firmy zaměřené na nanotechnologie.' },
     ],
     about: {
-      label:             'O mně',
+      label:             'O nás',
       headline:          'Věda, která<br/>dotýká se <em>kůže.</em>',
       body: [
-        'Jsem PhD výzkumnice specializující se na aplikaci <strong>elektrostaticky zvlákněných nanovláken</strong> v kosmetické formulační vědě. Moje práce propojuje základní chemii polymerů s reálnými inovacemi kosmetických produktů.',
-        'Vedle akademického výzkumu spolupracuji s kosmetickými značkami a výrobci surovin jako <strong>vědecká konzultantka</strong> — pomáhám převádět laboratorní poznatky do realizovatelných produktových konceptů.',
+        'Jsme specialisté na aplikaci <strong>vláken</strong> v kosmetické vědě. Naše práce propojuje základní chemii polymerů s reálnými inovacemi v oblasti kosmetických produktů. Vedle akademického výzkumu nabízíme <strong>spolupráci</strong> kosmetickým značkám a výrobcům surovin jako vědečtí konzultanti.',
+        'Pomáhat převádět laboratorní poznatky do realizovatelných produktových konceptů, které skutečně fungují v praxi. Máme bohaté zkušenosti nejen s přípravou vláken, ale také s jejich aplikací a začleňováním aditiv do finálních formulací. Baví nás výzvy, které stojí na pomezí vědy a průmyslu, a právě tam nacházíme ta nejzajímavější řešení.',
       ],
-      institution_label: 'Instituce',
-      location_label:    'Místo',
-      field_label:       'Obor',
+      institution_label: 'Středoevropský technologický institut, Vysoké učení technické',
+      location_label:    'Česká republika',
+      field_label:       'Nanotechnologie · Kosmetika',
     },
     blog: {
       section_title: 'Z výzkumného deníku',
@@ -200,26 +200,26 @@ export const t = {
       no_doi:        'Bez DOI',
     },
     consulting: {
-      page_title: 'Spolupráce — Martina Říhová',
+      page_title: 'Spolupráce',
       page_desc:  'Vědecké poradenství a R&D konzultace pro kosmetické firmy zaměřené na nanovláknové technologie.',
       eyebrow:    'Spolupracujme',
       headline:   'Věda, která se stává <em>produktem.</em>',
-      intro:      'Spolupracuji s kosmetickými značkami, výrobci surovin a startupÿ jako vědecká konzultantka — pomáhám týmům orientovat se v technické složitosti formulací na bázi nanovláken od prvotního konceptu až po prototyp.',
+      intro:      'Nabízíme spolupráci s kosmetickými značkami, výrobci surovin a startupy jako vědečtí konzultanti. Pomáháme týmům orientovat se v technické složitosti formulací na bázi nanovláken od prvotního konceptu až po prototyp.',
       services: [
         {
           num:   '01',
           title: 'R&D poradenství',
-          desc:  'Odborné vedení při výběru elektrostatického zvlákňování, polymerů a návrhu formulací. Ideální pro týmy vyvíjející nové systémy doručování nebo optimalizující stávající.',
+          desc:  'Nevíte, kde začít? Ať už hledáte správný polymer, řešíte výběr metody zvlákňování nebo ladíte formulaci, která nefunguje tak, jak má, rádi vám pomůžeme. Naše expertiza stojí na centrifugálním zvlákňování, ale principy, které jsme za ta léta získali, jsou přenositelné i do oblasti elektrostatického zvlákňování. Nabízíme odborné konzultace a vedení na míru pro týmy, které vyvíjejí nové systémy doručování účinných látek nebo optimalizují ty stávající.',
         },
         {
           num:   '02',
-          title: 'Technické zprávy',
-          desc:  'Komplexní literární rešerše, hodnocení proveditelnosti a white papers na témata kosmetiky s nanovlákny. Vhodné pro interní strategii nebo podporu regulatorních podání.',
+          title: 'Spolupráce a společné projekty',
+          desc:  'Máte výzkumný nápad, ale chybí vám expertise v oblasti vláken? Nebo hledáte akademického partnera pro průmyslový projekt? Jsme otevřeni společným projektům, grantovým přihláškám i dlouhodobé výzkumné spolupráci. Nejlepší věci totiž vznikají, když se spojí správní lidé.',
         },
         {
           num:   '03',
           title: 'Workshopy a školení',
-          desc:  'Prezenční nebo vzdálené semináře pro R&D týmy. Témata sahají od základů elektrostatického zvlákňování po pokročilé charakterizační techniky pro vlákna kosmetické kvality.',
+          desc:  'Prezenční nebo vzdálené semináře pro R&D týmy. Témata od základů elektrostatického zvlákňování po pokročilé charakterizační techniky pro vlákna kosmetické kvality.',
         },
         {
           num:   '04',
@@ -239,9 +239,9 @@ export const t = {
       cta_button:  'Napsat zprávu',
     },
     contact: {
-      page_title:  'Kontakt — Martina Říhová',
-      page_desc:   'Kontaktujte mě pro spolupráci, konzultace nebo média.',
-      eyebrow:     'Spojte se se mnou',
+      page_title:  'Kontakt',
+      page_desc:   'Kontaktujte nás pro spolupráci, konzultace nebo média.',
+      eyebrow:     'Spojte se s námi',
       headline:    'Pojďme <em>spolupracovat.</em>',
       intro:       'Ať vás zajímá konzultační projekt, výzkumná spolupráce, poradní role nebo jen chcete mluvit o nanovláknech — ráda si od vás přečtu.',
       form: {
@@ -276,9 +276,9 @@ export const t = {
       ],
     },
     meta: {
-      site_title: 'Martina Říhová — Výzkum nanovláken',
+      site_title: 'Výzkum nanovláken',
       site_desc:  'PhD výzkumnice specializující se na elektrostaticky zvlákněná nanovlákna pro kosmetické aplikace.',
-      blog_title: 'Blog — Martina Říhová',
+      blog_title: 'Blog',
       blog_desc:  'Vědecké pohledy na nanovlákna, elektrostatické zvlákňování a inovace v kosmetice.',
     },
   },
