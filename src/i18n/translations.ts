@@ -136,7 +136,7 @@ export const t = {
     },
     meta: {
       site_title: 'Nanofiber Research',
-      site_desc:  'PhD researcher specialising in electrospun nanofibers for cosmetic applications.',
+      site_desc:  'PhD researchers specialising in centrifugal and electrospun nanofibers for cosmetic applications.',
       blog_title: 'Blog',
       blog_desc:  'Research insights, technical guides, and industry perspectives on nanofibers in cosmetics.',
     },
@@ -263,7 +263,7 @@ export const t = {
     },
     location: {
       label:    'Poloha',
-      headline: 'Sídlím v<br/><em>{city}, {country}.</em><br/>Spolupracuji globálně.',
+      headline: 'Sídlím v<br/><em>{city}, {country}.</em><br/>Spolupracujeme globálně.',
       blurb:    'Otevřená vzdálené konzultaci, pozvánkám na mezinárodní konference a spolupráci s výzkumnými skupinami po celém světě.',
       cta:      'Napsat ohledně spolupráce',
     },
@@ -277,9 +277,9 @@ export const t = {
     },
     meta: {
       site_title: 'Výzkum nanovláken',
-      site_desc:  'PhD výzkumnice specializující se na elektrostaticky zvlákněná nanovlákna pro kosmetické aplikace.',
+      site_desc:  'PhD výzkumníci specializující se na odstředivě a elektrostaticky zvlákněná nanovlákna pro kosmetické aplikace.',
       blog_title: 'Blog',
-      blog_desc:  'Vědecké pohledy na nanovlákna, elektrostatické zvlákňování a inovace v kosmetice.',
+      blog_desc:  'Vědecké pohledy na nanovlákna, elektrostatické a odstředivé zvlákňování a inovace v kosmetice.',
     },
   },
 } as const;
